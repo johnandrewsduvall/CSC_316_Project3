@@ -4,7 +4,7 @@
  * Project:    project
  */
 
-public class CSC_316_Project3 {
+public class SocialNetwork {
 
     /**
      * @param args the command line arguments
