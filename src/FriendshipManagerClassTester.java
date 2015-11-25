@@ -47,9 +47,34 @@ public class FriendshipManagerClassTester {
         assertEqual(true, mgr.areFriends("Shantal", "Prabhu"));
         assertEqual(true, mgr.areFriends("Prabhu", "Shantal"));
         assertEqual(2, mgr.getLonerCount());
-
-        log("Making sure Billy and Prabhu have a mutual friend");
         assertEqual(true, mgr.haveMutualFriend("Billy", "Prabhu"));
+
+        log("Making Diego and Omar friends");
+        mgr.makeFriend("Diego", "Omar");
+        assertEqual(true, mgr.areFriends("Diego", "Omar"));
+        assertEqual(true, mgr.areFriends("Omar", "Diego"));
+        assertEqual(1, mgr.getLonerCount());
+        assertEqual(true, mgr.haveMutualFriend("Sally", "Omar"));
+
+        log("Making Natasha and Sally friends");
+        mgr.makeFriend("Natasha", "Sally");
+        assertEqual(true, mgr.areFriends("Natasha", "Sally"));
+        assertEqual(true, mgr.areFriends("Sally", "Natasha"));
+        assertEqual(0, mgr.getLonerCount());
+        assertEqual(true, mgr.haveMutualFriend("Natasha", "Diego"));
+
+        log("Making Omar and Sally friends");
+        mgr.makeFriend("Omar", "Sally");
+        assertEqual(true, mgr.areFriends("Omar", "Sally"));
+        assertEqual(true, mgr.areFriends("Sally", "Omar"));
+        assertEqual(0, mgr.getLonerCount());
+        assertEqual(true, mgr.haveMutualFriend("Natasha", "Omar"));
+
+        log("Making Diego and Natasha friends");
+        mgr.makeFriend("Diego", "Natasha");
+        assertEqual(true, mgr.areFriends("Diego", "Natasha"));
+        assertEqual(true, mgr.areFriends("Natasha", "Diego"));
+        assertEqual(0, mgr.getLonerCount());
     }
 
     private static void log(String message) {
