@@ -26,6 +26,13 @@ public class FriendshipManager {
     }
 
     public boolean haveMutualFriend(String name1, String name2) {
+        if (!_network.contains(name1)) {
+            return false;
+        }
+        if (!_network.contains(name2)) {
+            return false;
+        }
+
         Node<String> popularPerson = getPerson(name1, false);
         Node<String> shyPerson = getPerson(name2, false);
         if (shyPerson.neighbors.size() > popularPerson.neighbors.size()) {
@@ -33,9 +40,12 @@ public class FriendshipManager {
             shyPerson = popularPerson;
             popularPerson = temp;
         }
-        for (Node<String> friend : shyPerson.neighbors) {
-            if (friend.value == popularPerson.value) {
-                return true;
+
+        for (Node<String> shyFriend : shyPerson.neighbors) {
+            for (Node<String> popFriend : popularPerson.neighbors) {
+                if (shyFriend.value == popFriend.value) {
+                    return true;
+                }
             }
         }
         return false;
