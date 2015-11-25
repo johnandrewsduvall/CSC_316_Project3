@@ -45,25 +45,30 @@ function test {
 
     echo '-------------------------------';
 
-    echo 'Running diff tests';
+    # echo 'Running diff tests';
+    # cd $SRC_FILES_DIR;
+    # local inputDirLen=${#INPUT_FILES_DIR};
+    # local backSrcDirLen=${#BACK_SRC_FILES_DIR};
+    # inputDirLen=$((inputDirLen+backSrcDirLen+1));
+    # for inputFileName in $BACK_SRC_FILES_DIR$INPUT_FILES_DIR/*.txt
+    # do
+    #     fileName=${inputFileName:inputDirLen};
+    #     local outputFileName=$BACK_SRC_FILES_DIR$OUTPUT_FILES_DIR'/'$fileName;
+    #     echo 'Executing against' $fileName;
+    #     java $MAIN_PROGRAM < $inputFileName > $outputFileName;
+    #     echo 'Diffing expected vs actual for:' $fileName '. Any differences are shown below:';
+    #     local expectedOutputFileName=$BACK_SRC_FILES_DIR$EXCPECTED_OUTPUT_FILES_DIR'/'$fileName;
+    #     diff -b $expectedOutputFileName $outputFileName;
+    # done
+
+    # echo '-------------------------------';
+
+    echo 'Cleaning up';
     cd $SRC_FILES_DIR;
-    local inputDirLen=${#INPUT_FILES_DIR};
-    local backSrcDirLen=${#BACK_SRC_FILES_DIR};
-    inputDirLen=$((inputDirLen+backSrcDirLen+1));
-    for inputFileName in $BACK_SRC_FILES_DIR$INPUT_FILES_DIR/*.txt
-    do
-        fileName=${inputFileName:inputDirLen};
-        local outputFileName=$BACK_SRC_FILES_DIR$OUTPUT_FILES_DIR'/'$fileName;
-        echo 'Executing against' $fileName;
-        java $MAIN_PROGRAM < $inputFileName > $outputFileName;
-        echo 'Diffing expected vs actual for:' $fileName '. Any differences are shown below:';
-        local expectedOutputFileName=$BACK_SRC_FILES_DIR$EXCPECTED_OUTPUT_FILES_DIR'/'$fileName;
-        diff -b $expectedOutputFileName $outputFileName;
-    done
+    rm -f *.class;
 
     echo '-------------------------------';
 
-    rm -f *.class;
     echo 'Done';
 }
 
