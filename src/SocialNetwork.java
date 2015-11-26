@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 /**
  * Author:     John Andrew S Duvall
  * Date:       date
@@ -9,7 +10,7 @@ public class SocialNetwork {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // Read the file to make friends
         FriendshipManager mgr = FriendshipParser.parse(readFile(args[0]));
 
@@ -19,9 +20,6 @@ public class SocialNetwork {
             String line = scanner.nextLine().trim();
             if (line.equals("quit")) {
                 return;
-            }
-            if (line.equals("$")) {
-                continue;
             }
 
             // Parse the query
@@ -36,8 +34,13 @@ public class SocialNetwork {
         }
     }
 
-    private static List<String> readFile(String filePath) {
-        // TODO: Write this
-        return null;
+    private static ArrayList<String> readFile(String filePath)
+                                                  throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(filePath));
+        ArrayList<String> lines = new ArrayList<String>();
+        while (scanner.hasNextLine()) {
+            lines.add(scanner.nextLine());
+        }
+        return lines;
     }
 }

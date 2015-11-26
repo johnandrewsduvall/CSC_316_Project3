@@ -4,7 +4,7 @@ public class FriendshipManager {
     private ArrayList<String> _friendNames = new ArrayList<String>();
     private Graph<String> _graph = null;
 
-    public void registerFriendName(String name) {
+    public void registerPerson(String name) {
         _friendNames.add(name);
     }
 

@@ -17,13 +17,13 @@ public class FriendshipManagerClassTester {
 
         // Create loners
         log("Registering 7 friend names");
-        mgr.registerFriendName("Omar");
-        mgr.registerFriendName("Sally");
-        mgr.registerFriendName("Shantal");
-        mgr.registerFriendName("Billy");
-        mgr.registerFriendName("Diego");
-        mgr.registerFriendName("Prabhu");
-        mgr.registerFriendName("Natasha");
+        mgr.registerPerson("Omar");
+        mgr.registerPerson("Sally");
+        mgr.registerPerson("Shantal");
+        mgr.registerPerson("Billy");
+        mgr.registerPerson("Diego");
+        mgr.registerPerson("Prabhu");
+        mgr.registerPerson("Natasha");
 
         // Assign friendships
         log("Making Billy and Shantal friends");
