@@ -20,6 +20,9 @@ public class SocialNetwork {
             if (line.equals("quit")) {
                 return;
             }
+            if (line.equals("$")) {
+                continue;
+            }
 
             // Parse the query
             Query query = QueryParser.parse(line);

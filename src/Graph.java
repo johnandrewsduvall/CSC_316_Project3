@@ -1,8 +1,13 @@
 import java.util.*;
 
 public class Graph<E> {
+    // Map of node value -> index
     private TreeMap<E, Integer> _nodeIndices = new TreeMap<E, Integer>();
+
+    // Map of index -> node value
     private TreeMap<Integer, E> _indexNodes = new TreeMap<Integer, E>();
+
+    // Adjacency matrix
     private boolean[][] _matrix = null;
 
     public Graph(ArrayList<E> allNodeValues) {
