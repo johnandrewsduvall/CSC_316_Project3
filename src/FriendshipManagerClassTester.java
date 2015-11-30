@@ -12,6 +12,11 @@ public class FriendshipManagerClassTester {
     }
 
     private static void test() throws Exception {
+        testFriends();
+        testShortesPath();
+    }
+
+    private static void testFriends() throws Exception {
         FriendshipManager mgr = new FriendshipManager();
         ArrayList<String> expectedList = new ArrayList<String>();
 
@@ -82,6 +87,71 @@ public class FriendshipManagerClassTester {
         assertElementsEqual(expectedList,  mgr.getMutual("Natasha", "Omar"));
     }
 
+    private static void testShortesPath() throws Exception {
+        log("Creating friends graph");
+        FriendshipManager mgr = new FriendshipManager();
+        mgr.registerPerson("A");
+        mgr.registerPerson("B");
+        mgr.registerPerson("C");
+        mgr.registerPerson("D");
+        mgr.registerPerson("E");
+        mgr.registerPerson("F");
+        mgr.registerPerson("G");
+        mgr.registerPerson("H");
+        mgr.registerPerson("I");
+        mgr.registerPerson("J");
+
+        mgr.makeFriends("A", "B");
+        mgr.makeFriends("A", "C");
+        mgr.makeFriends("A", "D");
+        mgr.makeFriends("B", "D");
+        mgr.makeFriends("B", "G");
+        mgr.makeFriends("C", "D");
+        mgr.makeFriends("D", "F");
+        mgr.makeFriends("D", "E");
+        mgr.makeFriends("F", "E");
+        mgr.makeFriends("H", "E");
+        mgr.makeFriends("H", "I");
+        mgr.makeFriends("I", "J");
+        mgr.makeFriends("C", "J");
+
+        ArrayList<String> expected = new ArrayList<String>();
+
+        // A -> E
+        log("Testing A -> E path");
+        expected.clear();
+        expected.add("A");
+        expected.add("D");
+        expected.add("E");
+        assertElementsEqual(expected, mgr.getRelation("A", "E"));
+
+        // A -> I
+        log("Testing A -> I path");
+        expected.clear();
+        expected.add("A");
+        expected.add("C");
+        expected.add("J");
+        expected.add("I");
+        assertElementsEqual(expected, mgr.getRelation("A", "I"));
+
+        // D -> G
+        log("Testing D -> G path");
+        expected.clear();
+        expected.add("D");
+        expected.add("B");
+        expected.add("G");
+        assertElementsEqual(expected, mgr.getRelation("D", "G"));
+
+        // D -> I
+        log("Testing D -> I path");
+        expected.clear();
+        expected.add("D");
+        expected.add("C");
+        expected.add("J");
+        expected.add("I");
+        assertElementsEqual(expected, mgr.getRelation("D", "I"));
+    }
+
     private static void log(String message) {
         System.out.println(message);
     }
@@ -90,7 +160,7 @@ public class FriendshipManagerClassTester {
         assertEqual(expectedList.size(), actualList.size());
         for (String val : expectedList) {
             if (!actualList.contains(val)) {
-                throw new Exception("Couldn't find " + val + " in the list");
+                throw new Exception("Couldn't find " + val + " in the list " + Arrays.toString(actualList.toArray()));
             }
         }
     }
