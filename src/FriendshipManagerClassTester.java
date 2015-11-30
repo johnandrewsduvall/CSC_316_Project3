@@ -14,6 +14,7 @@ public class FriendshipManagerClassTester {
     private static void test() throws Exception {
         testFriends();
         testShortesPath();
+        testUnconnectedPairs();
     }
 
     private static void testFriends() throws Exception {
@@ -150,6 +151,33 @@ public class FriendshipManagerClassTester {
         expected.add("J");
         expected.add("I");
         assertElementsEqual(expected, mgr.getRelation("D", "I"));
+    }
+
+    private static void testUnconnectedPairs() throws Exception {
+        FriendshipManager mgr = new FriendshipManager();
+
+        log("Creating a graph");
+        mgr.registerPerson("A1");
+        mgr.registerPerson("A2");
+        mgr.registerPerson("A3");
+        mgr.registerPerson("A4");
+        mgr.registerPerson("B1");
+        mgr.registerPerson("B2");
+        mgr.registerPerson("B3");
+        mgr.registerPerson("C1");
+        mgr.registerPerson("C2");
+        mgr.registerPerson("D1");
+
+        log("Grouping into 4 separate components");
+        mgr.makeFriends("A1", "A2");
+        mgr.makeFriends("A1", "A3");
+        mgr.makeFriends("A1", "A4");
+        mgr.makeFriends("B1", "B2");
+        mgr.makeFriends("B1", "B3");
+        mgr.makeFriends("C1", "C2");
+
+        log("Checking the expected unconnected pair count");
+        assertEqual(36, mgr.countUnconnectedPairs());
     }
 
     private static void log(String message) {

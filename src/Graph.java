@@ -44,14 +44,80 @@ public class Graph<E> {
         return mutual;
     }
 
-    public ArrayList<E> getShortestPath(E from, E to) {
+    public ArrayList<E> getShortestPath(E start, E end) {
         // Setup
+        int startIdx = _nodeIndices.get(start);
+        TreeMap<Integer, Edge> mst = getMstFromNodeIdx(startIdx);
+
+        int endIdx = _nodeIndices.get(end);
+        if (!mst.containsKey(endIdx)) {
+            // No path
+            return null;
+        }
+
+        // Get the path
+        ArrayList<E> result = new ArrayList<E>();
+        result.add(end);
+        int toIdx = _nodeIndices.get(end);
+        while (toIdx != startIdx) {
+            Edge edge = mst.get(toIdx);
+            result.add(_indexNodes.get(edge.fromIdx));
+            toIdx = edge.fromIdx;
+        }
+        Collections.reverse(result);
+
+        // Done
+        return result;
+    }
+
+    public int countUnconnectedPairs() {
+        int count = 0;
+        ArrayList<TreeMap<Integer, Edge>> comps = getComponentsFromGraph();
+        if (comps.size() > 1) {
+            for (int i = 0; i < comps.size(); i++) {
+                for (int j = i + 1; j < comps.size(); j++) {
+                    count += (comps.get(i).size() * comps.get(j).size());
+                }
+            }
+            count += comps.get(comps.size() - 1).size();
+        }
+        return count;
+    }
+
+    // private methods
+    private ArrayList<TreeMap<Integer, Edge>> getComponentsFromGraph() {
+        int remaining = _indexNodes.size();
+        ArrayList<TreeMap<Integer, Edge>> components
+                                      = new ArrayList<TreeMap<Integer, Edge>>();
+        for (int idx : _indexNodes.keySet()) {
+            boolean alreadyMapped = false;
+            for (TreeMap<Integer, Edge> component : components) {
+                if (component.containsKey(idx)) {
+                    alreadyMapped = true;
+                    break;
+                }
+            }
+
+            if (!alreadyMapped) {
+                TreeMap<Integer, Edge> mst = getMstFromNodeIdx(idx);
+                components.add(mst);
+                remaining -= mst.size();
+                if (remaining == 0) {
+                    // We must have mapped all keys now
+                    break;
+                }
+            }
+        }
+
+        return components;
+    }
+
+    private TreeMap<Integer, Edge> getMstFromNodeIdx(int startIdx) {
         TreeMap<Integer, Edge> mst = new TreeMap<Integer, Edge>();
         int len = 0;
         ArrayList<Integer> nodeIndicesDiscovered = new ArrayList<Integer>();
 
         // "Discover" first node
-        int startIdx = _nodeIndices.get(from);
         nodeIndicesDiscovered.add(startIdx);
         mst.put(startIdx, new Edge(len, startIdx, startIdx));
 
@@ -60,8 +126,7 @@ public class Graph<E> {
             len++;
             ArrayList<Integer> temp = new ArrayList<Integer>();
             for (int fromIdx : nodeIndicesDiscovered) {
-                ArrayList<Integer> neighborIndices = getNeighborIndices(fromIdx);
-                for (int toIdx : neighborIndices) {
+                for (int toIdx : getNeighborIndices(fromIdx)) {
                     if (!mst.containsKey(toIdx)) {
                         // This is a new node. "Discover" it
                         mst.put(toIdx, new Edge(len, toIdx, fromIdx));
@@ -72,27 +137,9 @@ public class Graph<E> {
             nodeIndicesDiscovered = temp;
         }
 
-        // We have finished discovery
-        ArrayList<E> result = new ArrayList<E>();
-        result.add(to);
-        int toIdx = _nodeIndices.get(to);
-        while (toIdx != startIdx) {
-            Edge edge = mst.get(toIdx);
-            result.add(_indexNodes.get(edge.fromIdx));
-            toIdx = edge.fromIdx;
-        }
-        Collections.reverse(result);
-
-        return result;
+        return mst;
     }
 
-    public int countUnconnectedPairs() {
-        // TODO: Write this
-        // (multiply all connecte component counts [unless there are 1])/
-        return -1;
-    }
-
-    // private methods
     private ArrayList<Integer> getNeighborIndices(int idx) {
         ArrayList<Integer> neighborIndices = new ArrayList<Integer>();
         for (int i = 0; i < _matrix[idx].length; i++) {

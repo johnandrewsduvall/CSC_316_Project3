@@ -28,6 +28,10 @@ public class FriendshipManager {
         return _graph.getShortestPath(name1, name2);
     }
 
+    public int countUnconnectedPairs() {
+        return _graph.countUnconnectedPairs();
+    }
+
     public ArrayList<String> getPopularKids() {
         // TODO: Write this. Use the relation query?
         return null;
