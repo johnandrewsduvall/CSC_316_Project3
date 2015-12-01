@@ -8,6 +8,6 @@ public class MutualQueryResult extends QueryResult {
     }
 
     public String print() {
-        return printArray(mutualFriends);
+        return printArrayList(mutualFriends);
     }
 }

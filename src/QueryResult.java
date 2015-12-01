@@ -3,7 +3,7 @@ import java.util.*;
 public abstract class QueryResult {
     public abstract String print();
 
-    protected String printArray(ArrayList<String> lines) {
+    protected String printArrayList(ArrayList<String> lines) {
         StringBuilder sb = new StringBuilder();
         for (String line : lines) {
             if (sb.length() > 0) {

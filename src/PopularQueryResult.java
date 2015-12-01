@@ -8,6 +8,6 @@ public class PopularQueryResult extends QueryResult {
     }
 
     public String print() {
-        return printArray(popularKids);
+        return printArrayList(popularKids);
     }
 }
