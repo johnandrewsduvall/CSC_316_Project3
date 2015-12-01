@@ -1,6 +1,11 @@
 public class IsFriendQueryResult extends QueryResult {
+    public boolean isFriend;
+
+    public IsFriendQueryResult(boolean isFriend) {
+        this.isFriend = isFriend;
+    }
+
     public String print(){
-        // TODO: Write this
-        return null;
+        return isFriend ? "yes" : "no";
     }
 }
