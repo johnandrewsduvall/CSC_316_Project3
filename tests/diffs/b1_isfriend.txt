@@ -1,0 +1,5 @@
+1,4d0
+< isfriend A B
+< isfriend H I
+< isfriend A G
+< isfriend E I
