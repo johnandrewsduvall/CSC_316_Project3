@@ -1,6 +1,6 @@
 public class PopularQuery extends Query<PopularQueryResult> {
-    public PopularQueryResult execute(FriendshipManager mrg){
-        // TODO: Write this
+    public PopularQueryResult execute(FriendshipManager mgr){
+        // TODO: Call mgr.getPopularKids()
         return null;
     }
 }

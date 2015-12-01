@@ -1,6 +1,6 @@
 public class IsFriendQuery extends Query<IsFriendQueryResult> {
-    public IsFriendQueryResult execute(FriendshipManager mrg){
-        // TODO: Write this
+    public IsFriendQueryResult execute(FriendshipManager mgr){
+        // TODO: Call mgr.areFriends()
         return null;
     }
 }
