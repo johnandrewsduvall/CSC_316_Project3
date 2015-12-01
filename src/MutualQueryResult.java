@@ -8,13 +8,6 @@ public class MutualQueryResult extends QueryResult {
     }
 
     public String print() {
-        StringBuilder sb = new StringBuilder();
-        for (String name : mutualFriends) {
-            if (sb.length() > 0) {
-                sb.append('\n');
-            }
-            sb.append(name);
-        }
-        return sb.toString();
+        return printArray(mutualFriends);
     }
 }

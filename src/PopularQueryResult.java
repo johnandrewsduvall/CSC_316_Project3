@@ -1,6 +1,13 @@
+import java.util.*;
+
 public class PopularQueryResult extends QueryResult {
-    public String print(){
-        // TODO: Write this
-        return null;
+    public ArrayList<String> popularKids;
+
+    public PopularQueryResult(ArrayList<String> popularKids) {
+        this.popularKids = popularKids;
+    }
+
+    public String print() {
+        return printArray(popularKids);
     }
 }
