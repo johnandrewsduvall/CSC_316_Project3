@@ -84,6 +84,30 @@ public class Graph<E> {
         return count;
     }
 
+    public ArrayList<E> getMostConnectedNodes() {
+        double maxConnectivity = -1;
+
+        // Get most connected indices
+        ArrayList<Integer> mostConnectedIndices = new ArrayList<Integer>();
+        for (int idx : _indexNodes.keySet()) {
+            double thisConnectivity = getConnectivityRating(idx);
+            if (thisConnectivity >= maxConnectivity) {
+                if (thisConnectivity > maxConnectivity) {
+                    mostConnectedIndices.clear();
+                    maxConnectivity = thisConnectivity;
+                }
+                mostConnectedIndices.add(idx);
+            }
+        }
+
+        // Convert indices to node values
+        ArrayList<E> mostConnectedNodes = new ArrayList<E>();
+        for (int idx : mostConnectedIndices) {
+            mostConnectedNodes.add(_indexNodes.get(idx));
+        }
+        return mostConnectedNodes;
+    }
+
     // private methods
     private ArrayList<TreeMap<Integer, Edge>> getComponentsFromGraph() {
         int remaining = _indexNodes.size();
@@ -148,5 +172,19 @@ public class Graph<E> {
             }
         }
         return neighborIndices;
+    }
+
+    private double getConnectivityRating(int idx) {
+        TreeMap<Integer, Edge> mst = getMstFromNodeIdx(idx);
+        if (mst.isEmpty()) {
+            return 0;
+        }
+
+        int pathLengthSum = 0;
+        for(Edge edge : mst.values()) {
+            pathLengthSum += edge.culumativeLength;
+        }
+
+        return mst.size() / pathLengthSum;
     }
 }

@@ -15,14 +15,13 @@ public class FriendshipManagerClassTester {
         testFriends();
         testShortesPath();
         testUnconnectedPairs();
+        testPopularity();
     }
 
     private static void testFriends() throws Exception {
         FriendshipManager mgr = new FriendshipManager();
-        ArrayList<String> expectedList = new ArrayList<String>();
 
-        // Create loners
-        log("Registering 7 friend names");
+        // Create people
         mgr.registerPerson("Omar");
         mgr.registerPerson("Sally");
         mgr.registerPerson("Shantal");
@@ -32,59 +31,55 @@ public class FriendshipManagerClassTester {
         mgr.registerPerson("Natasha");
 
         // Assign friendships
-        log("Making Billy and Shantal friends");
         mgr.makeFriends("Billy", "Shantal");
+        mgr.makeFriends("Diego", "Sally");
+        mgr.makeFriends("Shantal", "Prabhu");
+        mgr.makeFriends("Diego", "Omar");
+        mgr.makeFriends("Natasha", "Sally");
+        mgr.makeFriends("Omar", "Sally");
+        mgr.makeFriends("Diego", "Natasha");
+
+        // Assert friendships
         assertEqual(true, mgr.areFriends("Billy", "Shantal"));
         assertEqual(true, mgr.areFriends("Shantal", "Billy"));
-
-        log("Making Diego and Sally friends");
-        mgr.makeFriends("Diego", "Sally");
-        assertEqual(true, mgr.areFriends("Diego", "Sally"));
-        assertEqual(true, mgr.areFriends("Sally", "Diego"));
-
-        log("Making Shantal and Prabhu friends");
-        mgr.makeFriends("Shantal", "Prabhu");
         assertEqual(true, mgr.areFriends("Shantal", "Prabhu"));
         assertEqual(true, mgr.areFriends("Prabhu", "Shantal"));
-        expectedList.clear();
+
+        assertEqual(true, mgr.areFriends("Diego", "Sally"));
+        assertEqual(true, mgr.areFriends("Sally", "Diego"));
+        assertEqual(true, mgr.areFriends("Diego", "Omar"));
+        assertEqual(true, mgr.areFriends("Omar", "Diego"));
+        assertEqual(true, mgr.areFriends("Natasha", "Sally"));
+        assertEqual(true, mgr.areFriends("Sally", "Natasha"));
+        assertEqual(true, mgr.areFriends("Omar", "Sally"));
+        assertEqual(true, mgr.areFriends("Sally", "Omar"));
+
+        // Assert mutual relations
+        log("Mutual Shantal");
+        ArrayList<String> expectedList = new ArrayList<String>();
         expectedList.add("Shantal");
         assertElementsEqual(expectedList,  mgr.getMutual("Billy", "Prabhu"));
 
-        log("Making Diego and Omar friends");
-        mgr.makeFriends("Diego", "Omar");
-        assertEqual(true, mgr.areFriends("Diego", "Omar"));
-        assertEqual(true, mgr.areFriends("Omar", "Diego"));
+        log("Mutual Omar & Natasha");
+        expectedList.clear();
+        expectedList.add("Omar");
+        expectedList.add("Natasha");
+        assertElementsEqual(expectedList,  mgr.getMutual("Sally", "Diego"));
+
+        log("Mutual Diego");
         expectedList.clear();
         expectedList.add("Diego");
-        assertElementsEqual(expectedList,  mgr.getMutual("Sally", "Omar"));
+        assertElementsEqual(expectedList,  mgr.getMutual("Omar", "Sally"));
+        assertElementsEqual(expectedList,  mgr.getMutual("Sally", "Natasha"));
 
-        log("Making Natasha and Sally friends");
-        mgr.makeFriends("Natasha", "Sally");
-        assertEqual(true, mgr.areFriends("Natasha", "Sally"));
-        assertEqual(true, mgr.areFriends("Sally", "Natasha"));
+        log("Mutual Sally");
         expectedList.clear();
         expectedList.add("Sally");
         assertElementsEqual(expectedList,  mgr.getMutual("Diego", "Natasha"));
+        assertElementsEqual(expectedList,  mgr.getMutual("Diego", "Omar"));
 
-        log("Making Omar and Sally friends");
-        mgr.makeFriends("Omar", "Sally");
-        assertEqual(true, mgr.areFriends("Omar", "Sally"));
-        assertEqual(true, mgr.areFriends("Sally", "Omar"));
-        expectedList.clear();
+        log("Mutual Sally & Diego");
         expectedList.add("Diego");
-        assertElementsEqual(expectedList,  mgr.getMutual("Sally", "Omar"));
-        expectedList.clear();
-        expectedList.add("Sally");
-        assertElementsEqual(expectedList,  mgr.getMutual("Diego", "Natasha"));
-        assertElementsEqual(expectedList,  mgr.getMutual("Omar", "Natasha"));
-
-        log("Making Diego and Natasha friends");
-        mgr.makeFriends("Diego", "Natasha");
-        assertEqual(true, mgr.areFriends("Diego", "Natasha"));
-        assertEqual(true, mgr.areFriends("Natasha", "Diego"));
-        expectedList.clear();
-        expectedList.add("Diego");
-        expectedList.add("Sally");
         assertElementsEqual(expectedList,  mgr.getMutual("Natasha", "Omar"));
     }
 
@@ -178,6 +173,36 @@ public class FriendshipManagerClassTester {
 
         log("Checking the expected unconnected pair count");
         assertEqual(36, mgr.countUnconnectedPairs());
+    }
+
+    private static void testPopularity() throws Exception {
+        log("Creating friends graph");
+        FriendshipManager mgr = new FriendshipManager();
+        mgr.registerPerson("A");
+        mgr.registerPerson("B");
+        mgr.registerPerson("C");
+        mgr.registerPerson("D");
+        mgr.registerPerson("E");
+        mgr.registerPerson("F");
+        mgr.registerPerson("G");
+        mgr.registerPerson("H");
+
+        mgr.makeFriends("A", "B");
+        mgr.makeFriends("A", "C");
+        mgr.makeFriends("D", "C");
+
+        mgr.makeFriends("E", "F");
+        mgr.makeFriends("G", "F");
+        mgr.makeFriends("E", "H");
+
+        log("Checking popularity");
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("A");
+        expected.add("C");
+        expected.add("E");
+        expected.add("F");
+
+        assertElementsEqual(expected, mgr.getPopularKids());
     }
 
     private static void log(String message) {

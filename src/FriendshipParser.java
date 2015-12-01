@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class FriendshipParser {
-    public static FriendshipManager parse(ArrayList<String> lines) {
+    public static FriendshipManager parse(ArrayList<String> lines)
+                                                              throws Exception {
         FriendshipManager mgr = new FriendshipManager();
         boolean inFilePart1 = true;
         for (String line : lines) {

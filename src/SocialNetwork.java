@@ -10,7 +10,7 @@ public class SocialNetwork {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
         // Read the file to make friends
         FriendshipManager mgr = FriendshipParser.parse(readFile(args[0]));
 
