@@ -2,12 +2,11 @@ public class NotConnectedQuery extends Query<NotConnectedQueryResult> {
 
     /**
      *
-     * @param mrg
+     * @param mgr
      * @return
      */
     @Override
-    public NotConnectedQueryResult execute(FriendshipManager mrg){
-        // TODO: Write this
-        return null;
+    public NotConnectedQueryResult execute(FriendshipManager mgr){
+        return new NotConnectedQueryResult(mgr.countUnconnectedPairs());
     }
 }

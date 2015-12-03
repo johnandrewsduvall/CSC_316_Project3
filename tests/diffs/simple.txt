@@ -1,0 +1,11 @@
+1,10d0
+< isfriend Natasha Diego
+< isfriend Omar Natasha
+< mutual Prabhu Billy
+< mutual Omar Natasha
+< mutual Sally Prabhu
+< relation Natasha Omar
+< relation Diego Billy
+< relation Diego Natasha
+< notconnected
+< popular

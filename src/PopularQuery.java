@@ -1,13 +1,13 @@
-public class PopularQuery extends Query<PopularQueryResult> {
 
-    /**
+public class PopularQuery extends Query<PopularQueryResult> {
+     /**
      *
-     * @param mrg
+     * @param mgr
      * @return
      */
     @Override
-    public PopularQueryResult execute(FriendshipManager mrg){
-        // TODO: Write this
-        return null;
+    public PopularQueryResult execute(FriendshipManager mgr){
+        return new PopularQueryResult(mgr.getPopularKids());
+    
     }
 }

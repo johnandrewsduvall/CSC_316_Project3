@@ -1,4 +1,9 @@
-isfriend A B
-isfriend H I
-isfriend A G
-isfriend E I
+$
+yes
+$
+yes
+$
+no
+$
+no
+$

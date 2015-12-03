@@ -1,11 +1,14 @@
-public class RelationQueryResult extends QueryResult {
+import java.util.*;
 
-    /**
-     * @return
-     */
+public class RelationQueryResult extends QueryResult {
+    public ArrayList<String> relationPath;
+
+    public RelationQueryResult(ArrayList<String> relationPath) {
+        this.relationPath = relationPath;
+    }
+
     @Override
-    public String print(){
-        // TODO: Write this
-        return null;
+    public String print() {
+        return printArrayList(this.relationPath);
     }
 }

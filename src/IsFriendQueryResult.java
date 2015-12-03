@@ -1,4 +1,14 @@
 public class IsFriendQueryResult extends QueryResult {
+    public boolean isFriend;
+
+    /**
+     *
+     * @param isFriend
+     */
+    public IsFriendQueryResult(boolean isFriend) {
+        this.isFriend = isFriend;
+    }
+
 
     /**
      *
@@ -6,7 +16,6 @@ public class IsFriendQueryResult extends QueryResult {
      */
     @Override
     public String print(){
-        // TODO: Write this
-        return null;
+        return isFriend ? "yes" : "no";
     }
 }

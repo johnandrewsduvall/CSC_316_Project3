@@ -24,6 +24,9 @@ public class SocialNetwork {
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
             System.exit(1);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.exit(1);
         }
 
         // Read the std input to get queries

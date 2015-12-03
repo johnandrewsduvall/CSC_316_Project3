@@ -1,10 +1,25 @@
-isfriend Natasha Diego
-isfriend Omar Natasha
-mutual Prabhu Billy
-mutual Omar Natasha
-mutual Sally Prabhu
-relation Natasha Omar
-relation Diego Billy
-relation Diego Natasha
-notconnected
-popular
+$
+yes
+$
+no
+$
+Shantal
+$
+Diego
+Sally
+$
+$
+Natasha
+Sally
+Omar
+$
+$
+Diego
+Natasha
+$
+12
+$
+Shantal
+Diego
+Sally
+$

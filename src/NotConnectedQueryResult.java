@@ -1,12 +1,14 @@
 public class NotConnectedQueryResult extends QueryResult {
+    public int unConnectedPairs;
 
-    /**
-     *
-     * @return
-     */
+    public NotConnectedQueryResult(int unConnectedPairs) {
+        this.unConnectedPairs = unConnectedPairs;
+    }
+
     @Override
-    public String print(){
-        // TODO: Write this
-        return null;
+    public String print() {
+        return Integer.toString(this.unConnectedPairs);
+
+    
     }
 }
