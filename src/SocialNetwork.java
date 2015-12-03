@@ -1,9 +1,9 @@
 import java.util.*;
 import java.io.*;
 /**
- * Author:     John Andrew S Duvall
- * Date:       date
- * Project:    project
+ * Author:     John Andrew S Duvall, Matthew Watkins, Shujun Ye
+ * Date:       December 6, 2015
+ * Project:    CSC_316_Project3
  */
 
 public class SocialNetwork {
