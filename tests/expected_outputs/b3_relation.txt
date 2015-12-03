@@ -1,4 +1,15 @@
-relation A G
-relation F B
-relation I H
-relation F I
+$
+A
+E
+G
+$
+F
+C
+D
+E
+B
+$
+I
+H
+$
+$
