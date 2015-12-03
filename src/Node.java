@@ -6,6 +6,6 @@ public class Node<E> {
 
     public Node(E value) {
         this.value = value;
-        this.neighbors = new ArrayList<Node<E>>();
+        this.neighbors = new ArrayList<>();
     }
 }

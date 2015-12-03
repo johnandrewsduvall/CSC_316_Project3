@@ -1,7 +1,6 @@
 public class RelationQuery extends Query<RelationQueryResult> {
 
     /**
-     *
      * @param mrg
      * @return
      */

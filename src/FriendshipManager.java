@@ -1,7 +1,13 @@
+/**
+ * @author John Andrew S Duvall, Matthew Watkins, Shujun Ye
+ * 
+ * This class is the primary manager fir the friendship graph
+ */
+
 import java.util.*;
 
 public class FriendshipManager {
-    private ArrayList<String> _friendNames = new ArrayList<String>();
+    private ArrayList<String> _friendNames = new ArrayList<>();
     private Graph<String> _graph = null;
 
     public void registerPerson(String name) {
@@ -10,7 +16,7 @@ public class FriendshipManager {
 
     public void makeFriends(String name1, String name2) {
         if (_graph == null) {
-            _graph = new Graph<String>(_friendNames);
+            _graph = new Graph<>(_friendNames);
             _friendNames = null; // free memory
         }
         _graph.link(name1, name2);

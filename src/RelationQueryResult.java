@@ -1,7 +1,6 @@
 public class RelationQueryResult extends QueryResult {
 
     /**
-     *
      * @return
      */
     @Override

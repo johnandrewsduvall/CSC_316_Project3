@@ -13,7 +13,7 @@ public class FriendshipManagerClassTester {
 
     private static void test() throws Exception {
         FriendshipManager mgr = new FriendshipManager();
-        ArrayList<String> expectedList = new ArrayList<String>();
+        ArrayList<String> expectedList = new ArrayList<>();
 
         // Create loners
         log("Registering 7 friend names");
