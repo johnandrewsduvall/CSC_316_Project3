@@ -1,5 +1,4 @@
-1,4d0
-< relation A G
-< relation F B
-< relation I H
-< relation F I
+1d0
+< $
+15d13
+< $

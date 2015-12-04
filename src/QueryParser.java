@@ -6,7 +6,23 @@ public class QueryParser {
      * @return
      */
     public static Query parse(String input) {
-        // TODO: Write this
-        return null;
+        Query query = null;
+        String[] parts = input.split(" ");
+        switch (parts[0])
+        {
+            case "isfriend":
+                query = new IsFriendQuery(parts[1], parts[2]);
+                break;
+            case "mutual":
+                query = new MutualQuery(parts[1], parts[2]);
+                break;
+            case "relation":
+                query = new RelationQuery(parts[1], parts[2]);
+                break;
+            case "popular":
+                query  = new PopularQuery(parts[1]);
+                break;
+        }
+        return query;
     }
 }

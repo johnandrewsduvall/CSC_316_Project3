@@ -56,7 +56,7 @@ public class FriendshipManagerClassTester {
 
         // Assert mutual relations
         log("Mutual Shantal");
-        ArrayList<String> expectedList = new ArrayList<String>();
+        ArrayList<String> expectedList = new ArrayList<>();
         expectedList.add("Shantal");
         assertElementsEqual(expectedList,  mgr.getMutual("Billy", "Prabhu"));
 
@@ -111,7 +111,7 @@ public class FriendshipManagerClassTester {
         mgr.makeFriends("I", "J");
         mgr.makeFriends("C", "J");
 
-        ArrayList<String> expected = new ArrayList<String>();
+        ArrayList<String> expected = new ArrayList<>();
 
         // A -> E
         log("Testing A -> E path");
@@ -196,7 +196,7 @@ public class FriendshipManagerClassTester {
         mgr.makeFriends("E", "H");
 
         log("Checking popularity");
-        ArrayList<String> expected = new ArrayList<String>();
+        ArrayList<String> expected = new ArrayList<>();
         expected.add("A");
         expected.add("C");
         expected.add("E");

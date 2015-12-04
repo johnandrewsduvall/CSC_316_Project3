@@ -1,11 +1,19 @@
-1,10d0
-< isfriend Natasha Diego
-< isfriend Omar Natasha
-< mutual Prabhu Billy
-< mutual Omar Natasha
-< mutual Sally Prabhu
-< relation Natasha Omar
-< relation Diego Billy
-< relation Diego Natasha
-< notconnected
-< popular
+1d0
+< $
+8d6
+< Diego
+9a8
+> Diego
+10a10
+> 
+16,25d15
+< $
+< Diego
+< Natasha
+< $
+< 12
+< $
+< Shantal
+< Diego
+< Sally
+< $

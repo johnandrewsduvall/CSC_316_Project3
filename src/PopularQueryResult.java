@@ -7,6 +7,11 @@ public class PopularQueryResult extends QueryResult {
         this.popularKids = popularKids;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public String print() {
         return printArrayList(popularKids);
     }
