@@ -15,7 +15,7 @@ public class SocialNetwork {
      * @param args the command line arguments
      * args[0] should contain the file path to the input file
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Read the file to make friends
 
         FriendshipManager mgr = null;
