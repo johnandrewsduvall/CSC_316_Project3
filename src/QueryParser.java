@@ -20,8 +20,9 @@ public class QueryParser {
                 query = new RelationQuery(parts[1], parts[2]);
                 break;
             case "popular":
-                query  = new PopularQuery(parts[1]);
+                query  = new PopularQuery();
                 break;
+            default: System.out.println("Error in Query Parsing");
         }
         return query;
     }

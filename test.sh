@@ -87,14 +87,14 @@ function test {
     echo '-------------------------------';
 
     echo 'Running boundary-all';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/boundary-all.txt' > '../tests/outputs/boundary-all.txt';
+    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/boundary_all.txt' > '../tests/outputs/boundary-all.txt';
     echo 'Diffing boundary-all';
     diff -b '../tests/expected_outputs/boundary-all.txt' '../tests/outputs/boundary-all.txt' > '../tests/diffs/boundary-all.txt';
 
     echo '-------------------------------';
 
     echo 'Cleaning up';
-    cd $SRC_FILES_DIR;
+    #cd $SRC_FILES_DIR;
     rm -f *.class;
 
     echo '-------------------------------';

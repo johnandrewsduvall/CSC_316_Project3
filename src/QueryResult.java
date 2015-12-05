@@ -7,6 +7,11 @@ import java.util.*;
 public abstract class QueryResult {
     public abstract String print();
 
+    /**
+     *
+     * @param lines ArrayList of strings to be turned into output String
+     * @return The formatted Output String
+     */
     protected String printArrayList(ArrayList<String> lines) {
         StringBuilder sb = new StringBuilder();
         for (String line : lines) {
