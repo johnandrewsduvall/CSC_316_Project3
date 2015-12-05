@@ -112,8 +112,6 @@ function diff_tests {
     cat '../tests/diffs/c_00125_00250.txt';
     echo '-------------------------------';
 
-    return;
-
     echo 'Running c_00125_00500';
     java SocialNetwork '../tests/graphs/n_00125_00500.txt' < '../tests/inputs/c_00125_00500.txt' > '../tests/outputs/c_00125_00500.txt';
     echo 'Diffing c_00125_00500. Any incorrect output will be diplayed below:';
@@ -162,6 +160,10 @@ function diff_tests {
     diff -b '../tests/expected_outputs/c_00500_02000.txt' '../tests/outputs/c_00500_02000.txt' > '../tests/diffs/c_00500_02000.txt';
     cat '../tests/diffs/c_00500_02000.txt';
     echo '-------------------------------';
+
+    # Beyond this point, you will exceed the CPU and memory limits for Cloud 9.
+    # Should run fine on an actual computer though
+    return;
 
     echo 'Running c_01000_02000';
     java SocialNetwork '../tests/graphs/n_01000_02000.txt' < '../tests/inputs/c_01000_02000.txt' > '../tests/outputs/c_01000_02000.txt';
