@@ -64,7 +64,7 @@ public class MST<E> {
         return null;
     }
 
-    public double getConnectivityRating(int visitID) {
+    public double getConnectivityRating() {
         if (this.size == 0) {
             return 0;
         } else if (this.size == 1) {
@@ -72,7 +72,7 @@ public class MST<E> {
         }
 
         double pathLengthSum = 0;
-        _to.head.value.visitID = 0;
+        _to.head.value.cumulativeLen = 0;
 
         LinkedListIterator<Vertex<E>> toIt = _to.iterator();
         LinkedListIterator<Vertex<E>> frIt = _from.iterator();
@@ -80,8 +80,8 @@ public class MST<E> {
             Vertex<E> to = toIt.next();
             Vertex<E> fr = frIt.next();
             if (to.key != _start) {
-                to.visitID = fr.visitID + 1;
-                pathLengthSum += to.visitID;
+                to.cumulativeLen = fr.cumulativeLen + 1;
+                pathLengthSum += to.cumulativeLen;
             }
         }
 

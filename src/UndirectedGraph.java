@@ -2,8 +2,7 @@ import java.util.*;
 
 public class UndirectedGraph<E> {
     private boolean _readOnly = false;
-    private int _visitID = 0;
-    private TreeMap<E, Vertex<E>> _vertices = new TreeMap<E, Vertex<E>>();
+    private LinkedHashMap<E, Vertex<E>> _vertices = new LinkedHashMap<E, Vertex<E>>();
 
     // Graph modification methods
     public void addVertex(E key) throws Exception {
@@ -78,19 +77,20 @@ public class UndirectedGraph<E> {
     }
 
     public LinkedList<E> getShortestPath(E key1, E key2) {
-        return getMinimumSpanningTree(key1, key2, ++_visitID).getPath(key2);
+        return getMinimumSpanningTree(key1, key2, rand()).getPath(key2);
     }
 
     public int countUnconnectedPairs() {
-        _visitID++;
+        UUID visitID = rand();
         int unconnectedCount = 0;
         int totalVertexCount = 0;
         LinkedList<Integer> compSizes = new LinkedList<Integer>();
 
         // Get all the component sizes
         for (Vertex<E> vertex : _vertices.values()) {
-            if (vertex.visitID != _visitID) {
-                MST<E> mst = getMinimumSpanningTree(vertex.key, null, _visitID);
+            if (vertex.visitID != visitID) {
+                // This element is not part of any existing MST
+                MST<E> mst = getMinimumSpanningTree(vertex.key, null, visitID);
                 compSizes.append(mst.size);
                 totalVertexCount += mst.size;
                 if (totalVertexCount >= _vertices.size()) {
@@ -141,10 +141,12 @@ public class UndirectedGraph<E> {
         }
     }
 
-    private MST<E> getMinimumSpanningTree(E startKey, E stopAt, int visitID) {
+    private MST<E> getMinimumSpanningTree(E startKey, E stopAt, UUID visitID) {
         LinkedList<Vertex<E>> fromList = new LinkedList<Vertex<E>>();
         LinkedList<Vertex<E>> toList = new LinkedList<Vertex<E>>();
         LinkedList<Vertex<E>> startingPts = new LinkedList<Vertex<E>>();
+
+        // System.out.println("Building a MST using BFS starting from " + startKey.toString());
 
         // Visit first node
         Vertex<E> start = _vertices.get(startKey);
@@ -166,6 +168,7 @@ public class UndirectedGraph<E> {
                     Vertex<E> neighbor = neighborIt.next();
                     if (neighbor.visitID != visitID) {
                         // Uncharted territory. Claim it
+                        // System.out.println("Claiming " + neighbor.key.toString() + " from " + startingPt.key.toString());
                         fromList.append(startingPt);
                         toList.append(neighbor);
                         newStartingPts.append(neighbor);
@@ -176,6 +179,8 @@ public class UndirectedGraph<E> {
                             stop = true;
                             break;
                         }
+                    } else {
+                        // System.out.println("Looked at " + neighbor.key.toString() + " from " + startingPt.key.toString() + " but it has already been visited");
                     }
                     if (stop) {
                         break;
@@ -196,7 +201,11 @@ public class UndirectedGraph<E> {
     }
 
     private double getConnectivityRating(Vertex<E> vertex) {
-        MST<E> mst = getMinimumSpanningTree(vertex.key, null, ++_visitID);
-        return mst.getConnectivityRating(++_visitID);
+        MST<E> mst = getMinimumSpanningTree(vertex.key, null, rand());
+        return mst.getConnectivityRating();
+    }
+
+    private UUID rand() {
+        return UUID.randomUUID();
     }
 }
