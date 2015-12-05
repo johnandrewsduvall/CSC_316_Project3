@@ -86,15 +86,15 @@ function diff_tests {
     diff -b '../tests/expected_outputs/b5_popular.txt' '../tests/outputs/b5_popular.txt' > '../tests/diffs/b5_popular.txt';
     cat '../tests/diffs/b5_popular.txt';
     echo '-------------------------------';
+
+    return;
+
     echo 'Running boundary_all';
     java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/boundary_all.txt' > '../tests/outputs/boundary_all.txt';
     echo 'Diffing boundary_all. Any incorrect output will be diplayed below:';
     diff -b '../tests/expected_outputs/boundary_all.txt' '../tests/outputs/boundary_all.txt' > '../tests/diffs/boundary_all.txt';
     cat '../tests/diffs/boundary_all.txt';
     echo '-------------------------------';
-
-    return;
-
     echo 'Running simple';
     java SocialNetwork '../tests/graphs/simple-graph.txt' < '../tests/inputs/simple.txt' > '../tests/outputs/simple.txt';
     echo 'Diffing simple. Any incorrect output will be diplayed below:';
