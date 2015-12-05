@@ -53,10 +53,8 @@ public class MST<E> {
     }
 
     public double getConnectivityRating() {
-        if (this.size == 0) {
+        if (this.size <= 0) {
             return 0;
-        } else if (this.size == 1) {
-            return 1;
         }
 
         double pathLengthSum = 0;
