@@ -29,6 +29,8 @@ public class SocialNetwork {
             System.exit(1);
         }
 
+        System.out.println("$");
+
         // Read the std input to get queries
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {

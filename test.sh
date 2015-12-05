@@ -42,13 +42,26 @@ function test {
         java $filenameWithoutExt 'go';
     done
 
+    diff_tests;
+
+
+    echo '-------------------------------';
+
+    echo 'Cleaning up';
+    rm -f *.class;
+
+    echo 'Done';
+}
+
+function diff_tests {
     echo 'Running diff tests';
     echo '-------------------------------';
     echo 'Running b1_isfriend';
     java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/b1_isfriend.txt' > '../tests/outputs/b1_isfriend.txt';
     echo 'Diffing b1_isfriend';
     diff -b '../tests/expected_outputs/b1_isfriend.txt' '../tests/outputs/b1_isfriend.txt' > '../tests/diffs/b1_isfriend.txt';
-
+    echo 'Any diffs will be displayed below';
+    cat '../tests/diffs/b1_isfriend.txt';
     return;
 
     echo '-------------------------------';
@@ -152,13 +165,6 @@ function test {
     echo 'Diffing c_04000_16000';
     diff -b '../tests/expected_outputs/c_04000_16000.txt' '../tests/outputs/c_04000_16000.txt' > '../tests/diffs/c_04000_16000.txt';
     echo '-------------------------------';
-
-    echo 'Cleaning up';
-    rm -f *.class;
-
-    echo '-------------------------------';
-
-    echo 'Done';
 }
 
 test
