@@ -46,7 +46,10 @@ public class SocialNetwork {
             QueryResult result = query.execute(mgr);
 
             // Print the result followed by a $
-            System.out.println(result.print());
+            String resultLine = result.print();
+            if (resultLine.length() > 0) {
+                System.out.println(resultLine);
+            }
             System.out.println("$");
         }
     }
