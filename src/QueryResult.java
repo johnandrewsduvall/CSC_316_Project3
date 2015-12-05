@@ -14,12 +14,14 @@ public abstract class QueryResult {
      */
     protected String printList(LinkedList<String> lines) {
         StringBuilder sb = new StringBuilder();
-        LinkedListIterator<String> iterator = lines.iterator();
-        while (iterator.hasNext()) {
-            if (sb.length() > 0) {
-                sb.append('\n');
+        if (lines != null) {
+            LinkedListIterator<String> iterator = lines.iterator();
+            while (iterator.hasNext()) {
+                if (sb.length() > 0) {
+                    sb.append('\n');
+                }
+                sb.append(iterator.next());
             }
-            sb.append(iterator.next());
         }
         return sb.toString();
     }
