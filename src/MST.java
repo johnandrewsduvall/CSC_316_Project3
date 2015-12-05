@@ -41,7 +41,7 @@ public class MST<E> {
             currentFr = currentFr == null ? _from.tail : currentFr.previous;
             if (currentTo.value.key.equals(search)) {
                 path.prepend(search);
-                if (search == _start) {
+                if (search.equals(_start)) {
                     return path;
                 }
                 search = currentFr.value.key;
