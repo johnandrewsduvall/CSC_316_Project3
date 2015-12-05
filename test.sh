@@ -42,59 +42,118 @@ function test {
         java $filenameWithoutExt 'go';
     done
 
+    echo 'Running diff tests';
     echo '-------------------------------';
-
-    echo 'Running simple';
-    java SocialNetwork '../simple-graph.txt' < '../tests/inputs/simple.txt' > '../tests/outputs/simple.txt';
-    echo 'Diffing simple';
-    diff -b '../tests/expected_outputs/simple.txt' '../tests/outputs/simple.txt' > '../tests/diffs/simple.txt';
-
-    echo '-------------------------------';
-
     echo 'Running b1_isfriend';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/b1_isfriend.txt' > '../tests/outputs/b1_isfriend.txt';
+    java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/b1_isfriend.txt' > '../tests/outputs/b1_isfriend.txt';
     echo 'Diffing b1_isfriend';
     diff -b '../tests/expected_outputs/b1_isfriend.txt' '../tests/outputs/b1_isfriend.txt' > '../tests/diffs/b1_isfriend.txt';
 
-    echo '-------------------------------';
+    return;
 
+    echo '-------------------------------';
     echo 'Running b2_mutual';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/b2_mutual.txt' > '../tests/outputs/b2_mutual.txt';
+    java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/b2_mutual.txt' > '../tests/outputs/b2_mutual.txt';
     echo 'Diffing b2_mutual';
     diff -b '../tests/expected_outputs/b2_mutual.txt' '../tests/outputs/b2_mutual.txt' > '../tests/diffs/b2_mutual.txt';
-
     echo '-------------------------------';
-
     echo 'Running b3_relation';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/b3_relation.txt' > '../tests/outputs/b3_relation.txt';
+    java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/b3_relation.txt' > '../tests/outputs/b3_relation.txt';
     echo 'Diffing b3_relation';
     diff -b '../tests/expected_outputs/b3_relation.txt' '../tests/outputs/b3_relation.txt' > '../tests/diffs/b3_relation.txt';
-
     echo '-------------------------------';
-
     echo 'Running b4_notconnected';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/b4_notconnected.txt' > '../tests/outputs/b4_notconnected.txt';
+    java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/b4_notconnected.txt' > '../tests/outputs/b4_notconnected.txt';
     echo 'Diffing b4_notconnected';
     diff -b '../tests/expected_outputs/b4_notconnected.txt' '../tests/outputs/b4_notconnected.txt' > '../tests/diffs/b4_notconnected.txt';
-
     echo '-------------------------------';
-
     echo 'Running b5_popular';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/b5_popular.txt' > '../tests/outputs/b5_popular.txt';
+    java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/b5_popular.txt' > '../tests/outputs/b5_popular.txt';
     echo 'Diffing b5_popular';
     diff -b '../tests/expected_outputs/b5_popular.txt' '../tests/outputs/b5_popular.txt' > '../tests/diffs/b5_popular.txt';
-
     echo '-------------------------------';
-
-    echo 'Running boundary-all';
-    java SocialNetwork '../boundary-graph.txt' < '../tests/inputs/boundary_all.txt' > '../tests/outputs/boundary-all.txt';
-    echo 'Diffing boundary-all';
-    diff -b '../tests/expected_outputs/boundary-all.txt' '../tests/outputs/boundary-all.txt' > '../tests/diffs/boundary-all.txt';
-
+    echo 'Running boundary_all';
+    java SocialNetwork '../tests/graphs/boundary-graph.txt' < '../tests/inputs/boundary_all.txt' > '../tests/outputs/boundary_all.txt';
+    echo 'Diffing boundary_all';
+    diff -b '../tests/expected_outputs/boundary_all.txt' '../tests/outputs/boundary_all.txt' > '../tests/diffs/boundary_all.txt';
+    echo '-------------------------------';
+    echo 'Running simple';
+    java SocialNetwork '../tests/graphs/simple-graph.txt' < '../tests/inputs/simple.txt' > '../tests/outputs/simple.txt';
+    echo 'Diffing simple';
+    diff -b '../tests/expected_outputs/simple.txt' '../tests/outputs/simple.txt' > '../tests/diffs/simple.txt';
+    echo '-------------------------------';
+    echo 'Running c_00125_00250';
+    java SocialNetwork '../tests/graphs/n_00125_00250.txt' < '../tests/inputs/c_00125_00250.txt' > '../tests/outputs/c_00125_00250.txt';
+    echo 'Diffing c_00125_00250';
+    diff -b '../tests/expected_outputs/c_00125_00250.txt' '../tests/outputs/c_00125_00250.txt' > '../tests/diffs/c_00125_00250.txt';
+    echo '-------------------------------';
+    echo 'Running c_00125_00500';
+    java SocialNetwork '../tests/graphs/n_00125_00500.txt' < '../tests/inputs/c_00125_00500.txt' > '../tests/outputs/c_00125_00500.txt';
+    echo 'Diffing c_00125_00500';
+    diff -b '../tests/expected_outputs/c_00125_00500.txt' '../tests/outputs/c_00125_00500.txt' > '../tests/diffs/c_00125_00500.txt';
+    echo '-------------------------------';
+    echo 'Running c_00125_01000';
+    java SocialNetwork '../tests/graphs/n_00125_01000.txt' < '../tests/inputs/c_00125_01000.txt' > '../tests/outputs/c_00125_01000.txt';
+    echo 'Diffing c_00125_01000';
+    diff -b '../tests/expected_outputs/c_00125_01000.txt' '../tests/outputs/c_00125_01000.txt' > '../tests/diffs/c_00125_01000.txt';
+    echo '-------------------------------';
+    echo 'Running c_00125_07500';
+    java SocialNetwork '../tests/graphs/n_00125_07500.txt' < '../tests/inputs/c_00125_07500.txt' > '../tests/outputs/c_00125_07500.txt';
+    echo 'Diffing c_00125_07500';
+    diff -b '../tests/expected_outputs/c_00125_07500.txt' '../tests/outputs/c_00125_07500.txt' > '../tests/diffs/c_00125_07500.txt';
+    echo '-------------------------------';
+    echo 'Running c_00250_00500';
+    java SocialNetwork '../tests/graphs/n_00250_00500.txt' < '../tests/inputs/c_00250_00500.txt' > '../tests/outputs/c_00250_00500.txt';
+    echo 'Diffing c_00250_00500';
+    diff -b '../tests/expected_outputs/c_00250_00500.txt' '../tests/outputs/c_00250_00500.txt' > '../tests/diffs/c_00250_00500.txt';
+    echo '-------------------------------';
+    echo 'Running c_00250_01000';
+    java SocialNetwork '../tests/graphs/n_00250_01000.txt' < '../tests/inputs/c_00250_01000.txt' > '../tests/outputs/c_00250_01000.txt';
+    echo 'Diffing c_00250_01000';
+    diff -b '../tests/expected_outputs/c_00250_01000.txt' '../tests/outputs/c_00250_01000.txt' > '../tests/diffs/c_00250_01000.txt';
+    echo '-------------------------------';
+    echo 'Running c_00500_01000';
+    java SocialNetwork '../tests/graphs/n_00500_01000.txt' < '../tests/inputs/c_00500_01000.txt' > '../tests/outputs/c_00500_01000.txt';
+    echo 'Diffing c_00500_01000';
+    diff -b '../tests/expected_outputs/c_00500_01000.txt' '../tests/outputs/c_00500_01000.txt' > '../tests/diffs/c_00500_01000.txt';
+    echo '-------------------------------';
+    echo 'Running c_00500_02000';
+    java SocialNetwork '../tests/graphs/n_00500_02000.txt' < '../tests/inputs/c_00500_02000.txt' > '../tests/outputs/c_00500_02000.txt';
+    echo 'Diffing c_00500_02000';
+    diff -b '../tests/expected_outputs/c_00500_02000.txt' '../tests/outputs/c_00500_02000.txt' > '../tests/diffs/c_00500_02000.txt';
+    echo '-------------------------------';
+    echo 'Running c_01000_02000';
+    java SocialNetwork '../tests/graphs/n_01000_02000.txt' < '../tests/inputs/c_01000_02000.txt' > '../tests/outputs/c_01000_02000.txt';
+    echo 'Diffing c_01000_02000';
+    diff -b '../tests/expected_outputs/c_01000_02000.txt' '../tests/outputs/c_01000_02000.txt' > '../tests/diffs/c_01000_02000.txt';
+    echo '-------------------------------';
+    echo 'Running c_01000_04000';
+    java SocialNetwork '../tests/graphs/n_01000_04000.txt' < '../tests/inputs/c_01000_04000.txt' > '../tests/outputs/c_01000_04000.txt';
+    echo 'Diffing c_01000_04000';
+    diff -b '../tests/expected_outputs/c_01000_04000.txt' '../tests/outputs/c_01000_04000.txt' > '../tests/diffs/c_01000_04000.txt';
+    echo '-------------------------------';
+    echo 'Running c_02000_04000';
+    java SocialNetwork '../tests/graphs/n_02000_04000.txt' < '../tests/inputs/c_02000_04000.txt' > '../tests/outputs/c_02000_04000.txt';
+    echo 'Diffing c_02000_04000';
+    diff -b '../tests/expected_outputs/c_02000_04000.txt' '../tests/outputs/c_02000_04000.txt' > '../tests/diffs/c_02000_04000.txt';
+    echo '-------------------------------';
+    echo 'Running c_02000_08000';
+    java SocialNetwork '../tests/graphs/n_02000_08000.txt' < '../tests/inputs/c_02000_08000.txt' > '../tests/outputs/c_02000_08000.txt';
+    echo 'Diffing c_02000_08000';
+    diff -b '../tests/expected_outputs/c_02000_08000.txt' '../tests/outputs/c_02000_08000.txt' > '../tests/diffs/c_02000_08000.txt';
+    echo '-------------------------------';
+    echo 'Running c_04000_08000';
+    java SocialNetwork '../tests/graphs/n_04000_08000.txt' < '../tests/inputs/c_04000_08000.txt' > '../tests/outputs/c_04000_08000.txt';
+    echo 'Diffing c_04000_08000';
+    diff -b '../tests/expected_outputs/c_04000_08000.txt' '../tests/outputs/c_04000_08000.txt' > '../tests/diffs/c_04000_08000.txt';
+    echo '-------------------------------';
+    echo 'Running c_04000_16000';
+    java SocialNetwork '../tests/graphs/n_04000_16000.txt' < '../tests/inputs/c_04000_16000.txt' > '../tests/outputs/c_04000_16000.txt';
+    echo 'Diffing c_04000_16000';
+    diff -b '../tests/expected_outputs/c_04000_16000.txt' '../tests/outputs/c_04000_16000.txt' > '../tests/diffs/c_04000_16000.txt';
     echo '-------------------------------';
 
     echo 'Cleaning up';
-    #cd $SRC_FILES_DIR;
     rm -f *.class;
 
     echo '-------------------------------';

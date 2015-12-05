@@ -8,7 +8,5 @@ public class NotConnectedQueryResult extends QueryResult {
     @Override
     public String print() {
         return Integer.toString(this.unConnectedPairs);
-
-    
     }
 }

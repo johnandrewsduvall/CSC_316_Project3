@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class PopularQueryResult extends QueryResult {
-    public ArrayList<String> popularKids;
+    public LinkedList<String> popularKids;
 
-    public PopularQueryResult(ArrayList<String> popularKids) {
+    public PopularQueryResult(LinkedList<String> popularKids) {
         this.popularKids = popularKids;
     }
 
@@ -13,6 +13,6 @@ public class PopularQueryResult extends QueryResult {
      */
     @Override
     public String print() {
-        return printArrayList(popularKids);
+        return printList(popularKids);
     }
 }

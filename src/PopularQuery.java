@@ -1,8 +1,5 @@
 
 public class PopularQuery extends Query<PopularQueryResult> {
-    
-    PopularQuery() {
-    }
      /**
      *
      * @param mgr
@@ -11,6 +8,5 @@ public class PopularQuery extends Query<PopularQueryResult> {
     @Override
     public PopularQueryResult execute(FriendshipManager mgr){
         return new PopularQueryResult(mgr.getPopularKids());
-    
     }
 }

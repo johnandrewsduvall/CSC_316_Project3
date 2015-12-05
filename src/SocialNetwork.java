@@ -4,7 +4,7 @@ import java.io.*;
  * Author:     John Andrew S Duvall, Matthew Watkins, Shujun Ye
  * Date:       December 6, 2015
  * Project:    CSC_316_Project3
- * 
+ *
  * This program reads a list of friends and friendships and creates an
  * undirected graph.   This program then takes commands from standard in and
  * provides information on the friendships provided.
@@ -17,7 +17,7 @@ public class SocialNetwork {
      */
     public static void main(String[] args) {
         // Read the file to make friends
-        
+
         FriendshipManager mgr = null;
         try {
             mgr = FriendshipParser.parse(readFile(args[0]));
@@ -48,19 +48,19 @@ public class SocialNetwork {
             System.out.println("$");
         }
     }
-    
+
     /**
      * @param filePath The file path to the friends & friendship file
      * @return And ArrayList of Strings of each line of the file.
-     * @throws FileNotFoundException If the program does not find 
+     * @throws FileNotFoundException If the program does not find
      * the file provided
      */
-    private static ArrayList<String> readFile(String filePath)
+    private static LinkedList<String> readFile(String filePath)
                                                   throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(filePath));
-        ArrayList<String> lines = new ArrayList<>();
+        LinkedList<String> lines = new LinkedList<>();
         while (scanner.hasNextLine()) {
-            lines.add(scanner.nextLine());
+            lines.append(scanner.nextLine());
         }
         return lines;
     }

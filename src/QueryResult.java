@@ -9,16 +9,17 @@ public abstract class QueryResult {
 
     /**
      *
-     * @param lines ArrayList of strings to be turned into output String
+     * @param lines LinkedList of strings to be turned into output String
      * @return The formatted Output String
      */
-    protected String printArrayList(ArrayList<String> lines) {
+    protected String printList(LinkedList<String> lines) {
         StringBuilder sb = new StringBuilder();
-        for (String line : lines) {
+        LinkedListIterator<String> iterator = lines.iterator();
+        while (iterator.hasNext()) {
             if (sb.length() > 0) {
                 sb.append('\n');
             }
-            sb.append(line);
+            sb.append(iterator.next());
         }
         return sb.toString();
     }
