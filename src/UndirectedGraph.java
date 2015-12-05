@@ -146,8 +146,6 @@ public class UndirectedGraph<E> {
         LinkedList<Vertex<E>> toList = new LinkedList<Vertex<E>>();
         LinkedList<Vertex<E>> startingPts = new LinkedList<Vertex<E>>();
 
-        // System.out.println("Building a MST using BFS starting from " + startKey.toString());
-
         // Visit first node
         Vertex<E> start = _vertices.get(startKey);
         fromList.append(null);
@@ -168,7 +166,6 @@ public class UndirectedGraph<E> {
                     Vertex<E> neighbor = neighborIt.next();
                     if (neighbor.visitID != visitID) {
                         // Uncharted territory. Claim it
-                        // System.out.println("Claiming " + neighbor.key.toString() + " from " + startingPt.key.toString());
                         fromList.append(startingPt);
                         toList.append(neighbor);
                         newStartingPts.append(neighbor);
@@ -179,8 +176,6 @@ public class UndirectedGraph<E> {
                             stop = true;
                             break;
                         }
-                    } else {
-                        // System.out.println("Looked at " + neighbor.key.toString() + " from " + startingPt.key.toString() + " but it has already been visited");
                     }
                     if (stop) {
                         break;
