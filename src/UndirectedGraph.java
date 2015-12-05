@@ -98,7 +98,6 @@ public class UndirectedGraph<E> {
                 }
             }
         }
-        System.out.println();
 
         if (compSizes.size > 1) {
             int count = 0;

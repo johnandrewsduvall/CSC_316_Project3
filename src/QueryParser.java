@@ -5,25 +5,23 @@ public class QueryParser {
      * @param input
      * @return
      */
-    public static Query parse(String input) {
+    public static Query parse(String input) throws Exception {
         Query query = null;
         String[] parts = input.split(" ");
         switch (parts[0])
         {
             case "isfriend":
-                query = new IsFriendQuery(parts[1], parts[2]);
-                break;
+                return new IsFriendQuery(parts[1], parts[2]);
             case "mutual":
-                query = new MutualQuery(parts[1], parts[2]);
-                break;
+                return new MutualQuery(parts[1], parts[2]);
             case "relation":
-                query = new RelationQuery(parts[1], parts[2]);
-                break;
+                return new RelationQuery(parts[1], parts[2]);
+            case "notconnected":
+                return new NotConnectedQuery();
             case "popular":
-                query  = new PopularQuery();
-                break;
-            default: System.out.println("Error in Query Parsing");
+                return new PopularQuery();
+            default:
+                throw new Exception("Cannot parse " + input);
         }
-        return query;
     }
 }
