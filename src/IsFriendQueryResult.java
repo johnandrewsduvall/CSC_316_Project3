@@ -14,8 +14,8 @@ public class IsFriendQueryResult extends QueryResult {
 
 
     /**
-     *
-     * @return
+     * @return yes/no String based on the boolean content of the 
+     * IsFriendQueryResult
      */
     @Override
     public String print(){

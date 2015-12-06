@@ -1,5 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * Query Result for the popular command, contains a LinkedList of Strings
  */
 
 public class PopularQueryResult extends QueryResult {
@@ -10,8 +11,7 @@ public class PopularQueryResult extends QueryResult {
     }
 
     /**
-     *
-     * @return
+     * @return formatted output string for printing
      */
     @Override
     public String print() {

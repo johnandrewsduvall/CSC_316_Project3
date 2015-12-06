@@ -1,17 +1,19 @@
 /**
  * @author Matthew Watkins
+ * An undirected graph and methods to work upon it; it can be made read only 
  */
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.UUID;
 
 public class UndirectedGraph<E> {
     private boolean _readOnly = false;
-    private LinkedHashMap<E, Vertex<E>> _vertices = new LinkedHashMap<E, Vertex<E>>();
+    private LinkedHashMap<E, Vertex<E>> _vertices = new LinkedHashMap<>();
 
     // Graph modification methods
     public void addVertex(E key) throws Exception {
         checkReadOnlyMode();
-        _vertices.put(key, new Vertex<E>(key));
+        _vertices.put(key, new Vertex<>(key));
     }
 
     public void addEdge(E key1, E key2) throws Exception {
@@ -50,7 +52,7 @@ public class UndirectedGraph<E> {
     }
 
     public LinkedList<E> getMutualNeighbors(E key1, E key2) {
-        LinkedList<E> mutual = new LinkedList<E>();
+        LinkedList<E> mutual = new LinkedList<>();
 
         // Get the 1st vertex neighbors
         LinkedList<Vertex<E>> n1 = _vertices.get(key1).neighbors;
@@ -88,7 +90,7 @@ public class UndirectedGraph<E> {
         UUID visitID = rand();
         int unconnectedCount = 0;
         int totalVertexCount = 0;
-        LinkedList<Integer> compSizes = new LinkedList<Integer>();
+        LinkedList<Integer> compSizes = new LinkedList<>();
 
         // Get all the component sizes
         for (Vertex<E> vertex : _vertices.values()) {
@@ -120,12 +122,12 @@ public class UndirectedGraph<E> {
 
     public LinkedList<E> getMostConnectedNodes() {
         double maxConnectivity = -1;
-        LinkedList<E> mostConnectedNodes = new LinkedList<E>();
+        LinkedList<E> mostConnectedNodes = new LinkedList<>();
         for (Vertex<E> vertex : _vertices.values()) {
             double thisConnectivity = getConnectivityRating(vertex);
             if (thisConnectivity >= maxConnectivity) {
                 if (thisConnectivity > maxConnectivity) {
-                    mostConnectedNodes = new LinkedList<E>();
+                    mostConnectedNodes = new LinkedList<>();
                     maxConnectivity = thisConnectivity;
                 }
                 mostConnectedNodes.append(vertex.key);
@@ -146,9 +148,9 @@ public class UndirectedGraph<E> {
     }
 
     private MST<E> getMinimumSpanningTree(E startKey, E stopAt, UUID visitID) {
-        LinkedList<Vertex<E>> fromList = new LinkedList<Vertex<E>>();
-        LinkedList<Vertex<E>> toList = new LinkedList<Vertex<E>>();
-        LinkedList<Vertex<E>> startingPts = new LinkedList<Vertex<E>>();
+        LinkedList<Vertex<E>> fromList = new LinkedList<>();
+        LinkedList<Vertex<E>> toList = new LinkedList<>();
+        LinkedList<Vertex<E>> startingPts = new LinkedList<>();
 
         // Visit first node
         Vertex<E> start = _vertices.get(startKey);
@@ -160,7 +162,7 @@ public class UndirectedGraph<E> {
         // Visit other nodes using BFS
         boolean stop = false;
         while (startingPts.size > 0) {
-            LinkedList<Vertex<E>> newStartingPts = new LinkedList<Vertex<E>>();
+            LinkedList<Vertex<E>> newStartingPts = new LinkedList<>();
             LinkedListIterator<Vertex<E>> startingPtIt = startingPts.iterator();
             while (startingPtIt.hasNext()) {
                 Vertex<E> startingPt = startingPtIt.next();
@@ -196,7 +198,7 @@ public class UndirectedGraph<E> {
         }
 
         // Return the minimum spanning tree
-        return new MST<E>(fromList, toList);
+        return new MST<>(fromList, toList);
     }
 
     private double getConnectivityRating(Vertex<E> vertex) {

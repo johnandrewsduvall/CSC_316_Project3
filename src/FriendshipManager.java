@@ -1,9 +1,7 @@
 /**
  * @author John Andrew S Duvall, Matthew Watkins, Shujun Ye
- *
  * This class is the primary manager for the friendship graph
  */
-
 
 public class FriendshipManager {
     private UndirectedGraph<String> _graph = new UndirectedGraph<>();
@@ -11,19 +9,18 @@ public class FriendshipManager {
     // Modify methods
     
     /**
-     *
-     * @param name
-     * @throws Exception
+     * @param name name of person to be added
+     * @throws Exception If addition was not successful
      */
     public void registerPerson(String name) throws Exception {
         _graph.addVertex(name);
     }
 
     /**
-     *
-     * @param name1
+     * @param name1 
      * @param name2
      * @throws Exception
+     * Connects two people on the friendship graph with an undirected edge
      */
     public void makeFriends(String name1, String name2) throws Exception {
         _graph.addEdge(name1, name2);
@@ -32,10 +29,9 @@ public class FriendshipManager {
     // Query methods
     
     /**
-     *
      * @param name1
      * @param name2
-     * @return
+     * @return true if there exists a friendship edge between the two people
      */
         
     public boolean areFriends(String name1, String name2) {
@@ -43,27 +39,25 @@ public class FriendshipManager {
     }
 
     /**
-     *
      * @param name1
      * @param name2
-     * @return
+     * @return The list of mutual friends of name1 and name2, returns empty list
+     * if no mutual friends are found
      */
     public LinkedList<String> getMutual(String name1, String name2) {
         return _graph.getMutualNeighbors(name1, name2);
     }
 
     /**
-     *
      * @param name1
      * @param name2
-     * @return
+     * @return The shortest list of friends needed to connect the two people
      */
     public LinkedList<String> getRelation(String name1, String name2) {
         return _graph.getShortestPath(name1, name2);
     }
 
     /**
-     *
      * @return
      */
     public int countUnconnectedPairs() {
@@ -71,7 +65,6 @@ public class FriendshipManager {
     }
 
     /**
-     *
      * @return
      */
     public LinkedList<String> getPopularKids() {

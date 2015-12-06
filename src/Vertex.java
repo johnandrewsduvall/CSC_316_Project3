@@ -1,8 +1,9 @@
 /**
  * @author Matthew Watkins
+ * Definition of Vertex Object for use in the UndirectedGraph Class
  */
 
-import java.util.*;
+import java.util.UUID;
 
 public class Vertex<E> {
     public E key;

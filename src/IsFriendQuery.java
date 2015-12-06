@@ -1,5 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * 
  */
 
 public class IsFriendQuery extends Query<IsFriendQueryResult> {
@@ -13,8 +14,8 @@ public class IsFriendQuery extends Query<IsFriendQueryResult> {
 
     /**
      *
-     * @param mgr
-     * @return
+     * @param mgr Active Friendship manager containing the graph to be queried
+     * @return 
      */
     @Override
     public IsFriendQueryResult execute(FriendshipManager mgr){

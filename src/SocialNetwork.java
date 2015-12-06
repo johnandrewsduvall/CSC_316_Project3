@@ -1,5 +1,3 @@
-import java.util.*;
-import java.io.*;
 /**
  * Author:     John Andrew S Duvall, Matthew Watkins, Shujun Ye
  * Date:       December 6, 2015
@@ -9,6 +7,10 @@ import java.io.*;
  * undirected graph.   This program then takes commands from standard in and
  * provides information on the friendships provided.
  */
+
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class SocialNetwork {
     /**
@@ -64,8 +66,8 @@ public class SocialNetwork {
     /**
      * @param filePath The file path to the friends & friendship file
      * @return And ArrayList of Strings of each line of the file.
-     * @throws FileNotFoundException If the program does not find
-     * the file provided
+     * @throws FileNotFoundException If the program cannot find the file
+     * provided
      */
     private static LinkedList<String> readFile(String filePath)
                                                   throws FileNotFoundException {

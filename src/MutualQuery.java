@@ -13,7 +13,7 @@ public class MutualQuery extends Query<MutualQueryResult> {
 
     /**
      *
-     * @param mgr
+     * @param mgr Active Friendship manager containing the graph to be queried
      * @return
      */
     @Override

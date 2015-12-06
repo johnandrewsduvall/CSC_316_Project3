@@ -1,6 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
- * @param <E> 
+ * @param <E> Objects type for the list.
  */
 public class LinkedList<E> {
     public ListNode<E> head;
@@ -8,7 +8,7 @@ public class LinkedList<E> {
     public int size;
 
     public void append(E value) {
-        ListNode<E> node = new ListNode<E>(value);
+        ListNode<E> node = new ListNode<>(value);
         if (this.head == null) {
             // First node
             this.head = node;
@@ -23,7 +23,7 @@ public class LinkedList<E> {
     }
 
     public void prepend(E value) {
-        ListNode<E> node = new ListNode<E>(value);
+        ListNode<E> node = new ListNode<>(value);
         if (this.head == null) {
             // First node
             this.head = node;
@@ -38,9 +38,10 @@ public class LinkedList<E> {
     }
 
     public LinkedListIterator<E> iterator() {
-        return new LinkedListIterator<E>(this);
+        return new LinkedListIterator<>(this);
     }
-
+    
+//Unused Method
 /*
     public E[] toArray() {
         if (this.size == 0) {

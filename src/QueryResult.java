@@ -1,12 +1,11 @@
 /**
  * @author John Andrew S Duvall, Matthew Watkins, Shujun Ye
- * This interface defines results given from query commands.
+ * This abstract class defines results given from query commands.
  */
 public abstract class QueryResult {
     public abstract String print();
 
     /**
-     *
      * @param lines LinkedList of strings to be turned into output String
      * @return The formatted Output String
      */

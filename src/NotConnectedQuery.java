@@ -1,11 +1,11 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * Query Object for the NotConnected command
  */
 public class NotConnectedQuery extends Query<NotConnectedQueryResult> {
 
     /**
-     *
-     * @param mgr
+     * @param mgr Active Friendship manager containing the graph to be queried
      * @return
      */
     @Override
