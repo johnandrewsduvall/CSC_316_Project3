@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * @param <E> 
+ */
 public class ListNode<E> {
     public E value;
     public ListNode<E> previous;

@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * @param <E> 
+ */
 public class MST<E> {
     private E _start = null;
     private LinkedList<Vertex<E>> _from = null;

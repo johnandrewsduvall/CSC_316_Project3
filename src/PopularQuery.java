@@ -1,4 +1,6 @@
-
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
 public class PopularQuery extends Query<PopularQueryResult> {
      /**
      *

@@ -1,4 +1,7 @@
-import java.util.*;
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * 
+ */
 
 public class FriendshipParser {
     public static FriendshipManager parse(LinkedList<String> lines)

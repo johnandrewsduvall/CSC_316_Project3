@@ -1,4 +1,6 @@
-import java.util.*;
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
 
 public class PopularQueryResult extends QueryResult {
     public LinkedList<String> popularKids;

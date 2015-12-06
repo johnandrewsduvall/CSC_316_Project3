@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins
+ */
+
 import java.util.*;
 
 public class UndirectedGraph<E> {

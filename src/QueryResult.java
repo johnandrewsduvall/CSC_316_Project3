@@ -1,5 +1,3 @@
-import java.util.*;
-
 /**
  * @author John Andrew S Duvall, Matthew Watkins, Shujun Ye
  * This interface defines results given from query commands.

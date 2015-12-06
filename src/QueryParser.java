@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
+
 public class QueryParser {
 
     /**

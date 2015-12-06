@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
+
 public class IsFriendQuery extends Query<IsFriendQueryResult> {
     public String name1;
     public String name2;

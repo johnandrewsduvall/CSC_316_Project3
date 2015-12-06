@@ -1,4 +1,6 @@
-import java.util.*;
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
 
 public class MutualQueryResult extends QueryResult {
     public LinkedList<String> mutualFriends;

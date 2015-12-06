@@ -1,3 +1,7 @@
+/*
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * @param <E> 
+ */
 public class LinkedListIterator<E> {
     private ListNode<E> _current = null;
     private LinkedList<E> _list = null;

@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * @param <E> 
+ */
 public class LinkedList<E> {
     public ListNode<E> head;
     public ListNode<E> tail;

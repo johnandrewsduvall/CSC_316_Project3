@@ -15,8 +15,8 @@ public class SocialNetwork {
      * @param args the command line arguments
      * args[0] should contain the file path to the input file
      */
-    public static void main(String[] args) throws Exception {
-        // Read the file to make friends
+    public static void main(String[] args) {
+        // Read the file to make friends, program exits 
 
         FriendshipManager mgr = null;
         try {
@@ -28,7 +28,8 @@ public class SocialNetwork {
             System.out.println(ex.getMessage());
             System.exit(1);
         }
-
+        
+        //Print the seperator between calls
         System.out.println("$");
 
         // Read the std input to get queries
@@ -39,8 +40,14 @@ public class SocialNetwork {
                 return;
             }
 
-            // Parse the query
-            Query query = QueryParser.parse(line);
+            // Parse the query, program exits on exception
+            Query query = null;
+            try {
+                query = QueryParser.parse(line);
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+                System.exit(1);
+            }
 
             // Get the result
             QueryResult result = query.execute(mgr);

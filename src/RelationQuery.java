@@ -1,3 +1,6 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
 public class RelationQuery extends Query<RelationQueryResult> {
     public String name1;
     public String name2;

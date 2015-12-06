@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins
+ */
+
 import java.util.*;
 
 public class Vertex<E> {
@@ -8,7 +12,7 @@ public class Vertex<E> {
 
     public Vertex(E key) {
         this.key = key;
-        this.neighbors = new LinkedList<Vertex<E>>();
+        this.neighbors = new LinkedList<>();
         this.cumulativeLen = 0;
     }
 }

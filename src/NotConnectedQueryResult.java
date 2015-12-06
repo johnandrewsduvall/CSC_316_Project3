@@ -1,3 +1,6 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
 public class NotConnectedQueryResult extends QueryResult {
     public int unConnectedPairs;
 

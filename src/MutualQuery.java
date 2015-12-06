@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ */
+
 public class MutualQuery extends Query<MutualQueryResult> {
     public String name1;
     public String name2;
