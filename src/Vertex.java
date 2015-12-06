@@ -5,11 +5,6 @@
 
 import java.util.UUID;
 
-/**
- *
- * @author JohnAndrew
- * @param <E>
- */
 public class Vertex<E> {
     public E key;
     public LinkedList<Vertex<E>> neighbors;
