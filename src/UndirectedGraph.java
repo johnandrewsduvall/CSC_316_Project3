@@ -1,6 +1,6 @@
 /**
  * @author Matthew Watkins
- * An undirected graph and methods to work upon it; it can be made read only 
+ * An undirected graph and methods to work upon it; it can be made read only
  */
 
 import java.util.LinkedHashMap;
@@ -9,6 +9,10 @@ import java.util.UUID;
 public class UndirectedGraph<E> {
     private boolean _readOnly = false;
     private LinkedHashMap<E, Vertex<E>> _vertices = new LinkedHashMap<>();
+
+    // Cached vars
+    private int _unconnectedPairs = -1;
+    private LinkedList<E> _mostConnectedNodes = null;
 
     // Graph modification methods
     public void addVertex(E key) throws Exception {
@@ -38,7 +42,7 @@ public class UndirectedGraph<E> {
      * @return true if there exists an edge between two vertices,
      * false otherwise
      */
-        public boolean areNeighbors(E key1, E key2) {
+    public boolean areNeighbors(E key1, E key2) {
         // Get the 1st vertex
         Vertex<E> v1 = _vertices.get(key1);
         if (v1.neighbors.size == 0) {
@@ -117,6 +121,10 @@ public class UndirectedGraph<E> {
      * @return
      */
     public int countUnconnectedPairs() {
+        if (_unconnectedPairs > -1) {
+            return _unconnectedPairs;
+        }
+
         UUID visitID = rand();
         int unconnectedCount = 0;
         int totalVertexCount = 0;
@@ -147,7 +155,8 @@ public class UndirectedGraph<E> {
             }
         }
 
-        return unconnectedCount;
+        _unconnectedPairs = unconnectedCount;
+        return _unconnectedPairs;
     }
 
     /**
@@ -155,6 +164,10 @@ public class UndirectedGraph<E> {
      * @return
      */
     public LinkedList<E> getMostConnectedNodes() {
+        if (_mostConnectedNodes != null) {
+            return _mostConnectedNodes;
+        }
+
         double maxConnectivity = -1;
         LinkedList<E> mostConnectedNodes = new LinkedList<>();
         for (Vertex<E> vertex : _vertices.values()) {
@@ -167,7 +180,9 @@ public class UndirectedGraph<E> {
                 mostConnectedNodes.append(vertex.key);
             }
         }
-        return mostConnectedNodes;
+
+        _mostConnectedNodes = mostConnectedNodes;
+        return _mostConnectedNodes;
     }
 
     // Private methods
