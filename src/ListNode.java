@@ -1,6 +1,7 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
  * @param <E> 
+ * The generic node class with methods to act upon it.
  */
 public class ListNode<E> {
     public E value;

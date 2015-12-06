@@ -1,6 +1,7 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
- * 
+ * External constructor for FriendshipManager Object, uses LinkedList of Strings
+ * representing lines from the graph file.
  */
 
 public class FriendshipParser {

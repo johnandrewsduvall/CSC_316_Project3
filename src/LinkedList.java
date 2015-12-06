@@ -1,6 +1,7 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
  * @param <E> Objects type for the list.
+ * +
  */
 public class LinkedList<E> {
     public ListNode<E> head;

@@ -1,6 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
- * 
+ * The query object for the isFriend Command
  */
 
 public class IsFriendQuery extends Query<IsFriendQueryResult> {

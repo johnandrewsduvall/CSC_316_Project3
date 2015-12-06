@@ -1,6 +1,7 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
- * @param <E> 
+ * @param <E> Datatype to be contained in each vertex
+ * MST creates and maintains a minimum spanning tree
  */
 public class MST<E> {
     private E _start = null;
@@ -10,8 +11,8 @@ public class MST<E> {
 
     /**
      *
-     * @param from
-     * @param to
+     * @param from initial vertex
+     * @param to final vertex
      */
     public MST(LinkedList<Vertex<E>> from, LinkedList<Vertex<E>> to) {
         _from = from;
@@ -41,11 +42,11 @@ public class MST<E> {
 
     /**
      *
-     * @param to
+     * @param to 
      * @return
      */
     public LinkedList<E> getPath(E to) {
-        LinkedList<E> path = new LinkedList<E>();
+        LinkedList<E> path = new LinkedList<>();
         E search = to;
         ListNode<Vertex<E>> currentTo = null;
         ListNode<Vertex<E>> currentFr = null;
@@ -67,8 +68,8 @@ public class MST<E> {
     }
 
     /**
-     *
-     * @return
+     * @return a double from 0 to 1 inclusive. 0 being not connected and 1 being
+     * fully connected
      */
     public double getConnectivityRating() {
         if (this.size <= 0) {

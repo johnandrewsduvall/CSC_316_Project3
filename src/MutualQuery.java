@@ -1,5 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * The Query object for the "mutual" command
  */
 
 public class MutualQuery extends Query<MutualQueryResult> {

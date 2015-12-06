@@ -1,5 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
+ * The QueryResult object for the isFriend command, contains a boolean
  */
 public class IsFriendQueryResult extends QueryResult {
     public boolean isFriend;

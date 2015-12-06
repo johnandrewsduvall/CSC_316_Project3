@@ -1,6 +1,6 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
- * 
+ * The Query object for the "relation" command 
  */
 public class RelationQuery extends Query<RelationQueryResult> {
     public String name1;

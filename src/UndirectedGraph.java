@@ -17,10 +17,10 @@ public class UndirectedGraph<E> {
     }
 
     /**
-     *
      * @param key1
      * @param key2
      * @throws Exception
+     * Adds an undirected edge between two vertices
      */
     public void addEdge(E key1, E key2) throws Exception {
         checkReadOnlyMode();
@@ -33,10 +33,10 @@ public class UndirectedGraph<E> {
     // Graph query methods
 
     /**
-     *
      * @param key1
      * @param key2
-     * @return
+     * @return true if there exists an edge between two vertices,
+     * false otherwise
      */
         public boolean areNeighbors(E key1, E key2) {
         // Get the 1st vertex
@@ -68,7 +68,7 @@ public class UndirectedGraph<E> {
      *
      * @param key1
      * @param key2
-     * @return
+     * @return List of shared neighbors between two vertices
      */
     public LinkedList<E> getMutualNeighbors(E key1, E key2) {
         LinkedList<E> mutual = new LinkedList<>();
@@ -105,7 +105,8 @@ public class UndirectedGraph<E> {
      *
      * @param key1
      * @param key2
-     * @return
+     * @return The shortest path between two vertices, returns an empty list is
+     * there does not exists a path between the given vertices.
      */
     public LinkedList<E> getShortestPath(E key1, E key2) {
         return getMinimumSpanningTree(key1, key2, rand()).getPath(key2);

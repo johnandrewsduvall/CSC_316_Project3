@@ -58,14 +58,14 @@ public class FriendshipManager {
     }
 
     /**
-     * @return
+     * @return The number of unconnected pairs
      */
     public int countUnconnectedPairs() {
         return _graph.countUnconnectedPairs();
     }
 
     /**
-     * @return
+     * @return A list of people in ascending order of popularity
      */
     public LinkedList<String> getPopularKids() {
         return _graph.getMostConnectedNodes();

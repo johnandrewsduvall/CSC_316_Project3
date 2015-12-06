@@ -1,6 +1,7 @@
-/*
+/**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
- * @param <E> 
+ * @param <E>
+ * The iterator class composed in the LinkedList class
  */
 public class LinkedListIterator<E> {
     private ListNode<E> _current = null;

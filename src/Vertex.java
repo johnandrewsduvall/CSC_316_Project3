@@ -12,7 +12,6 @@ public class Vertex<E> {
     public int cumulativeLen;
 
     /**
-     *
      * @param key
      */
     public Vertex(E key) {
