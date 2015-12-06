@@ -6,6 +6,10 @@
 public class RelationQueryResult extends QueryResult {
     public LinkedList<String> relationPath;
 
+    /**
+     *
+     * @param relationPath
+     */
     public RelationQueryResult(LinkedList<String> relationPath) {
         this.relationPath = relationPath;
     }

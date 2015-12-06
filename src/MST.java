@@ -8,6 +8,11 @@ public class MST<E> {
     private LinkedList<Vertex<E>> _to = null;
     public int size;
 
+    /**
+     *
+     * @param from
+     * @param to
+     */
     public MST(LinkedList<Vertex<E>> from, LinkedList<Vertex<E>> to) {
         _from = from;
         _to = to;
@@ -34,6 +39,11 @@ public class MST<E> {
         */
     }
 
+    /**
+     *
+     * @param to
+     * @return
+     */
     public LinkedList<E> getPath(E to) {
         LinkedList<E> path = new LinkedList<E>();
         E search = to;
@@ -56,6 +66,10 @@ public class MST<E> {
         return null;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getConnectivityRating() {
         if (this.size <= 0) {
             return 0;

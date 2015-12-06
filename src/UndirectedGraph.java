@@ -16,6 +16,12 @@ public class UndirectedGraph<E> {
         _vertices.put(key, new Vertex<>(key));
     }
 
+    /**
+     *
+     * @param key1
+     * @param key2
+     * @throws Exception
+     */
     public void addEdge(E key1, E key2) throws Exception {
         checkReadOnlyMode();
         Vertex<E> v1 = _vertices.get(key1);
@@ -25,15 +31,22 @@ public class UndirectedGraph<E> {
     }
 
     // Graph query methods
-    public boolean areNeighbors(E key1, E key2) {
+
+    /**
+     *
+     * @param key1
+     * @param key2
+     * @return
+     */
+        public boolean areNeighbors(E key1, E key2) {
         // Get the 1st vertex
         Vertex<E> v1 = _vertices.get(key1);
         if (v1.neighbors.size == 0) {
             return false;
         }
 
-        // Get the 2nd vertex
-        Vertex<E> v2 = _vertices.get(key2);
+        Vertex<E> v2;
+        v2 = _vertices.get(key2);
         if (v2.neighbors.size == 0) {
             return false;
         }
@@ -51,6 +64,12 @@ public class UndirectedGraph<E> {
         return false;
     }
 
+    /**
+     *
+     * @param key1
+     * @param key2
+     * @return
+     */
     public LinkedList<E> getMutualNeighbors(E key1, E key2) {
         LinkedList<E> mutual = new LinkedList<>();
 
@@ -82,10 +101,20 @@ public class UndirectedGraph<E> {
         return mutual;
     }
 
+    /**
+     *
+     * @param key1
+     * @param key2
+     * @return
+     */
     public LinkedList<E> getShortestPath(E key1, E key2) {
         return getMinimumSpanningTree(key1, key2, rand()).getPath(key2);
     }
 
+    /**
+     *
+     * @return
+     */
     public int countUnconnectedPairs() {
         UUID visitID = rand();
         int unconnectedCount = 0;
@@ -120,6 +149,10 @@ public class UndirectedGraph<E> {
         return unconnectedCount;
     }
 
+    /**
+     *
+     * @return
+     */
     public LinkedList<E> getMostConnectedNodes() {
         double maxConnectivity = -1;
         LinkedList<E> mostConnectedNodes = new LinkedList<>();

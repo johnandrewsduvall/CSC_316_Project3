@@ -7,6 +7,10 @@ public class LinkedList<E> {
     public ListNode<E> tail;
     public int size;
 
+    /**
+     *
+     * @param value
+     */
     public void append(E value) {
         ListNode<E> node = new ListNode<>(value);
         if (this.head == null) {
@@ -22,6 +26,10 @@ public class LinkedList<E> {
         this.size++;
     }
 
+    /**
+     *
+     * @param value
+     */
     public void prepend(E value) {
         ListNode<E> node = new ListNode<>(value);
         if (this.head == null) {
@@ -37,6 +45,10 @@ public class LinkedList<E> {
         this.size++;
     }
 
+    /**
+     *
+     * @return
+     */
     public LinkedListIterator<E> iterator() {
         return new LinkedListIterator<>(this);
     }
@@ -57,6 +69,13 @@ public class LinkedList<E> {
         return (E[])arr;
     }
 */
+
+    /**
+     *
+     * @param value
+     * @return
+     */
+    
 
     public boolean contains(E value) {
         LinkedListIterator<E> iterator = this.iterator();

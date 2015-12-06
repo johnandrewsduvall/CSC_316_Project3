@@ -10,6 +10,10 @@ public class LinkedListIterator<E> {
         _list = list;
     }
 
+    /**
+     *
+     * @return
+     */
     public E next() {
         if (!hasNext()) {
             return null;
@@ -18,6 +22,10 @@ public class LinkedListIterator<E> {
         return _current.value;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean hasNext() {
         if (_list.size == 0) {
             return false;
@@ -28,6 +36,10 @@ public class LinkedListIterator<E> {
         return _current.hasNext();
     }
 
+    /**
+     *
+     * @return
+     */
     public E previous() {
         if (!hasPrevious()) {
             return null;
@@ -36,6 +48,10 @@ public class LinkedListIterator<E> {
         return _current.value;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean hasPrevious() {
         if (_list.size == 0) {
             return false;

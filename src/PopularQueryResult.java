@@ -6,6 +6,10 @@
 public class PopularQueryResult extends QueryResult {
     public LinkedList<String> popularKids;
 
+    /**
+     *
+     * @param popularKids
+     */
     public PopularQueryResult(LinkedList<String> popularKids) {
         this.popularKids = popularKids;
     }

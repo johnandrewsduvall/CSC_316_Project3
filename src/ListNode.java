@@ -7,14 +7,26 @@ public class ListNode<E> {
     public ListNode<E> previous;
     public ListNode<E> next;
 
+    /**
+     *
+     * @return
+     */
     public boolean hasNext() {
         return next != null;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean hasPrevious() {
         return previous != null;
     }
 
+    /**
+     *
+     * @param value
+     */
     public ListNode(E value) {
         this.value = value;
     }

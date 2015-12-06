@@ -5,6 +5,10 @@
 public class NotConnectedQueryResult extends QueryResult {
     public int unConnectedPairs;
 
+    /**
+     *
+     * @param unConnectedPairs
+     */
     public NotConnectedQueryResult(int unConnectedPairs) {
         this.unConnectedPairs = unConnectedPairs;
     }
