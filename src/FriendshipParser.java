@@ -3,8 +3,13 @@
  * External constructor for FriendshipManager Object, uses LinkedList of Strings
  * representing lines from the graph file.
  */
-
 public class FriendshipParser {
+    /**
+     * Parsing method.
+     * @param lines lines of info
+     * @return FriendshipManager
+     * @throws Exception if the result is invalid
+     */
     public static FriendshipManager parse(LinkedList<String> lines)
                                                               throws Exception {
         FriendshipManager mgr = new FriendshipManager();

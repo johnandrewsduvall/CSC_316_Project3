@@ -3,9 +3,11 @@
  * This abstract class defines results given from query commands.
  */
 public abstract class QueryResult {
+    /** Abstract method of print */
     public abstract String print();
 
     /**
+     * printList method.
      * @param lines LinkedList of strings to be turned into output String
      * @return The formatted Output String
      */

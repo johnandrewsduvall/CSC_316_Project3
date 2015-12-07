@@ -4,21 +4,21 @@
  * mutual friends of the given two people or and empty list if there exists no
  * mutual friends
  */
-
 public class MutualQueryResult extends QueryResult {
+    /** mutaualFriends method */
     public LinkedList<String> mutualFriends;
 
     /**
-     *
-     * @param mutualFriends
+     * Construcor methd
+     * @param mutualFriends mutal friends
      */
     public MutualQueryResult(LinkedList<String> mutualFriends) {
         this.mutualFriends = mutualFriends;
     }
 
     /**
-     *
-     * @return
+     * Override method
+     * @return outprint the resutl.
      */
     @Override
     public String print() {

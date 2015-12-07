@@ -4,29 +4,32 @@
  * The generic node class with methods to act upon it.
  */
 public class ListNode<E> {
+    /** value of node */
     public E value;
+    /** previous value of ListNode */
     public ListNode<E> previous;
+    /** next value of ListNode */
     public ListNode<E> next;
 
     /**
-     *
-     * @return
+     * hasNext method
+     * @return a boolean of result
      */
     public boolean hasNext() {
         return next != null;
     }
 
     /**
-     *
-     * @return
+     * hasPrevious method
+     * @return a boolean of result
      */
     public boolean hasPrevious() {
         return previous != null;
     }
 
     /**
-     *
-     * @param value
+     * Constructor method.
+     * @param value value of node
      */
     public ListNode(E value) {
         this.value = value;

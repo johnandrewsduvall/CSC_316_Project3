@@ -3,20 +3,20 @@
  * The QueryResult object for the isFriend command, contains a boolean
  */
 public class IsFriendQueryResult extends QueryResult {
+    /** A boolean of isFriend. */
     public boolean isFriend;
 
     /**
-     *
-     * @param isFriend
+     * Constructor method.
+     * @param isFriend true if is friend, otherwise false.
      */
     public IsFriendQueryResult(boolean isFriend) {
         this.isFriend = isFriend;
     }
 
-
     /**
-     * @return yes/no String based on the boolean content of the 
-     * IsFriendQueryResult
+     * This method return a string of result, either yes or no.
+     * @return yes/no String based on the boolean content of the IsFriendQueryResult.
      */
     @Override
     public String print(){

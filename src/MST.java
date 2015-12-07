@@ -4,13 +4,17 @@
  * MST creates and maintains a minimum spanning tree
  */
 public class MST<E> {
+    /** value of E */
     private E _start = null;
+    /** value of LinkedList from intial vertex */
     private LinkedList<Vertex<E>> _from = null;
+    /** value of LinkedList to final vertex*/
     private LinkedList<Vertex<E>> _to = null;
+    /** size of LinkedList */
     public int size;
 
     /**
-     *
+     * Constructor method.
      * @param from initial vertex
      * @param to final vertex
      */
@@ -41,9 +45,9 @@ public class MST<E> {
     }
 
     /**
-     *
-     * @param to 
-     * @return
+     * getPath method
+     * @param to final vertex
+     * @return a LinkedList
      */
     public LinkedList<E> getPath(E to) {
         LinkedList<E> path = new LinkedList<>();
@@ -68,6 +72,7 @@ public class MST<E> {
     }
 
     /**
+     * getConnectivityRating method.
      * @return a double from 0 to 1 inclusive. 0 being not connected and 1 being
      * fully connected
      */

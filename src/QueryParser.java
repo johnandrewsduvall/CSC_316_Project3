@@ -2,11 +2,10 @@
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
  * Constructs query object from a line of input
  */
-
 public class QueryParser {
 
     /**
-     *
+     * Query parsing method.
      * @param input line of input to be parsed
      * @return extends query 
      * @throws java.lang.Exception if the line cannot be parsed

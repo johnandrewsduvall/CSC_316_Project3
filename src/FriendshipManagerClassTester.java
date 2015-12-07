@@ -1,6 +1,15 @@
 import java.util.*;
 
+/**
+ * @author John Andrew S Duvall, Matthew Watkins, Shujun Ye
+ * This class is a test class for FriendshipManager class.
+ */
 public class FriendshipManagerClassTester {
+    /** 
+     * Main method of FriendshipManagerClassTester.
+     * @param args command line args
+     * @throws Exception if the result is invalid.
+     */
     public static void main(String[] args) throws Exception {
         try {
             test();
@@ -11,6 +20,10 @@ public class FriendshipManagerClassTester {
         }
     }
 
+    /**
+     * Tester method.
+     * @throws Exception if the result is invalid.
+     */
     private static void test() throws Exception {
         testFriends();
         testShortesPath();
@@ -18,6 +31,10 @@ public class FriendshipManagerClassTester {
         testPopularity();
     }
 
+    /**
+     * Tester method.
+     * @throws Exception if the result is invalid.
+     */
     private static void testFriends() throws Exception {
         FriendshipManager mgr = new FriendshipManager();
 
@@ -83,6 +100,10 @@ public class FriendshipManagerClassTester {
         assertElementsEqual(expectedList,  mgr.getMutual("Natasha", "Omar"));
     }
 
+    /**
+     * Tester method.
+     * @throws Exception if the result is invalid.
+     */
     private static void testShortesPath() throws Exception {
         log("Creating letter graph");
         FriendshipManager mgr = new FriendshipManager();
@@ -148,6 +169,10 @@ public class FriendshipManagerClassTester {
         assertElementsEqual(expected, mgr.getRelation("D", "I"));
     }
 
+    /**
+     * Tester method.
+     * @throws Exception if the result is invalid.
+     */
     private static void testUnconnectedPairs() throws Exception {
         FriendshipManager mgr = new FriendshipManager();
 
@@ -175,6 +200,10 @@ public class FriendshipManagerClassTester {
         assertEqual(35, mgr.countUnconnectedPairs());
     }
 
+    /**
+     * Tester method.
+     * @throws Exception if the result is invalid.
+     */
     private static void testPopularity() throws Exception {
         log("Creating friends graph");
         FriendshipManager mgr = new FriendshipManager();
@@ -205,10 +234,20 @@ public class FriendshipManagerClassTester {
         assertElementsEqual(expected, mgr.getPopularKids());
     }
 
+    /**
+     * This method is a log to keep message.
+     * @param message outprint message
+     */
     private static void log(String message) {
         System.out.println(message);
     }
 
+    /**
+     * Tester method.
+     * @param expectedList expected list
+     * @param actualList actual list
+     * @throws Exception if the result is invalid
+     */
     private static void assertElementsEqual(LinkedList<String> expectedList, LinkedList<String> actualList) throws Exception {;
         assertEqual(expectedList.size, actualList.size);
         LinkedListIterator<String> i1 = expectedList.iterator();
@@ -222,6 +261,12 @@ public class FriendshipManagerClassTester {
         }
     }
 
+    /**
+     * Tester method.
+     * @param expected expected result
+     * @param actual actual result
+     * @throws Exception if the result is invalid.
+     */
     private static void assertEqual(Object expected, Object actual) throws Exception {
         if (expected != actual) {
             throw new Exception("Expected " + expected + " but got " + actual);

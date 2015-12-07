@@ -5,8 +5,9 @@
 public class NotConnectedQuery extends Query<NotConnectedQueryResult> {
 
     /**
+     * Override method
      * @param mgr Active Friendship manager containing the graph to be queried
-     * @return
+     * @return NotConnectedQuery result
      */
     @Override
     public NotConnectedQueryResult execute(FriendshipManager mgr){

@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 
 public class SocialNetwork {
     /**
+     * Main class.
      * @param args the command line arguments
      * args[0] should contain the file path to the input file
      */
@@ -64,6 +65,7 @@ public class SocialNetwork {
     }
 
     /**
+     * This method reads a file.
      * @param filePath The file path to the friends & friendship file
      * @return And ArrayList of Strings of each line of the file.
      * @throws FileNotFoundException If the program cannot find the file

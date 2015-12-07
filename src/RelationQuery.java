@@ -3,13 +3,15 @@
  * The Query object for the "relation" command 
  */
 public class RelationQuery extends Query<RelationQueryResult> {
+    /** Name of one person */
     public String name1;
+    /** Name of another person */
     public String name2;
 
     /**
-     *
-     * @param name1
-     * @param name2
+     * Constructor method.
+     * @param name1 one person's name
+     * @param name2 another person's name
      */
     public RelationQuery(String name1, String name2) {
         this.name1 = name1;
@@ -17,9 +19,9 @@ public class RelationQuery extends Query<RelationQueryResult> {
     }
 
     /**
-     *
+     * Override method
      * @param mgr Active Friendship manager containing the graph to be queried
-     * @return
+     * @return RelationQuery result
      */
     @Override
     public RelationQueryResult execute(FriendshipManager mgr) {

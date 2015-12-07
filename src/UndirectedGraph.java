@@ -21,10 +21,10 @@ public class UndirectedGraph<E> {
     }
 
     /**
+     * Adds an undirected edge between two vertices
      * @param key1
      * @param key2
-     * @throws Exception
-     * Adds an undirected edge between two vertices
+     * @throws Exception if the result is invalid
      */
     public void addEdge(E key1, E key2) throws Exception {
         checkReadOnlyMode();
@@ -37,6 +37,7 @@ public class UndirectedGraph<E> {
     // Graph query methods
 
     /**
+     * This method returns the boolean result of areNeighbors.
      * @param key1
      * @param key2
      * @return true if there exists an edge between two vertices,
@@ -69,7 +70,7 @@ public class UndirectedGraph<E> {
     }
 
     /**
-     *
+     * This method returns list of shared neighbors between two vertices.
      * @param key1
      * @param key2
      * @return List of shared neighbors between two vertices
@@ -106,7 +107,7 @@ public class UndirectedGraph<E> {
     }
 
     /**
-     *
+     * This method returns the shortest path between two vertices.
      * @param key1
      * @param key2
      * @return The shortest path between two vertices, returns an empty list is
@@ -117,8 +118,8 @@ public class UndirectedGraph<E> {
     }
 
     /**
-     *
-     * @return
+     * This method returns the count of unconnected paris.
+     * @return number of unconnected pairs.
      */
     public int countUnconnectedPairs() {
         if (_unconnectedPairs > -1) {
@@ -160,8 +161,8 @@ public class UndirectedGraph<E> {
     }
 
     /**
-     *
-     * @return
+     * This method returns a LinkedList of most connceted nodes.
+     * @return LinkedList of most connected nodes
      */
     public LinkedList<E> getMostConnectedNodes() {
         if (_mostConnectedNodes != null) {
@@ -186,16 +187,28 @@ public class UndirectedGraph<E> {
     }
 
     // Private methods
+    /** This is a private method. */
     private void setReadonlyMode() {
         _readOnly = true;
     }
 
+    /**
+     * This is a private method.
+     * @throws Exception if the result is invalid.
+     */
     private void checkReadOnlyMode() throws Exception {
         if (_readOnly) {
             throw new Exception("Cannot modify the friends graph now");
         }
     }
 
+    /** 
+     * Private method.
+     * @param startKey the starting key
+     * @param stopAt the stopping key
+     * @param visitID the visit ID
+     * @return MST
+     */
     private MST<E> getMinimumSpanningTree(E startKey, E stopAt, UUID visitID) {
         LinkedList<Vertex<E>> fromList = new LinkedList<>();
         LinkedList<Vertex<E>> toList = new LinkedList<>();
@@ -250,11 +263,20 @@ public class UndirectedGraph<E> {
         return new MST<>(fromList, toList);
     }
 
+    /**
+     * Private method
+     * @param vertex of a graph
+     * @return number of connectivity rating
+     */
     private double getConnectivityRating(Vertex<E> vertex) {
         MST<E> mst = getMinimumSpanningTree(vertex.key, null, rand());
         return mst.getConnectivityRating();
     }
 
+    /**
+     * rand method.
+     * @return UUID
+     */
     private UUID rand() {
         return UUID.randomUUID();
     }

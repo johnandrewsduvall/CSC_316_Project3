@@ -4,16 +4,22 @@
  * The iterator class composed in the LinkedList class
  */
 public class LinkedListIterator<E> {
+    /** current node of ListNode */
     private ListNode<E> _current = null;
+    /** list of LinkedList */
     private LinkedList<E> _list = null;
-
+    
+    /**
+     * Constructor method.
+     * @param list of LinkedList
+     */
     public LinkedListIterator(LinkedList<E> list) {
         _list = list;
     }
 
     /**
-     *
-     * @return
+     * next method.
+     * @return the current value of next method.
      */
     public E next() {
         if (!hasNext()) {
@@ -24,8 +30,8 @@ public class LinkedListIterator<E> {
     }
 
     /**
-     *
-     * @return
+     * hasNext method.
+     * @returna boolean of a result.
      */
     public boolean hasNext() {
         if (_list.size == 0) {
@@ -38,8 +44,8 @@ public class LinkedListIterator<E> {
     }
 
     /**
-     *
-     * @return
+     * previous method.
+     * @return value of previous value.
      */
     public E previous() {
         if (!hasPrevious()) {
@@ -50,8 +56,8 @@ public class LinkedListIterator<E> {
     }
 
     /**
-     *
-     * @return
+     * hasPrevious method.
+     * @return a boolean of result
      */
     public boolean hasPrevious() {
         if (_list.size == 0) {

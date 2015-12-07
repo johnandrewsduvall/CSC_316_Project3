@@ -1,16 +1,19 @@
 /**
  * @author Matthew Watkins, Shujen Ye, John Andrew Duvall
  * @param <E> Objects type for the list.
- * +
+ * This is a LinkedList class.
  */
 public class LinkedList<E> {
+    /** head of a list node */
     public ListNode<E> head;
+    /** tail of a list node */
     public ListNode<E> tail;
+    /** size of a list*/
     public int size;
 
     /**
-     *
-     * @param value
+     * Append method.
+     * @param value a value of node
      */
     public void append(E value) {
         ListNode<E> node = new ListNode<>(value);
@@ -28,8 +31,8 @@ public class LinkedList<E> {
     }
 
     /**
-     *
-     * @param value
+     * Prepend method.
+     * @param value a value of node
      */
     public void prepend(E value) {
         ListNode<E> node = new ListNode<>(value);
@@ -47,8 +50,8 @@ public class LinkedList<E> {
     }
 
     /**
-     *
-     * @return
+     * Iterator method.
+     * @return a LinkedListIterator
      */
     public LinkedListIterator<E> iterator() {
         return new LinkedListIterator<>(this);
@@ -72,12 +75,10 @@ public class LinkedList<E> {
 */
 
     /**
-     *
-     * @param value
-     * @return
+     * Contains method.
+     * @param value a value of node
+     * @return a boolean of a result, either true of false
      */
-    
-
     public boolean contains(E value) {
         LinkedListIterator<E> iterator = this.iterator();
         while (iterator.hasNext()) {
